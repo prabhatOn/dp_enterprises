@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import 'tailwindcss/tailwind.css';
+import '@/styles/globals.css';
 
 interface MainLayoutProps {
   children: ReactNode;
