@@ -54,7 +54,7 @@ export default function Header() {
               
               {/* Main Product Dropdown */}
               {showProductMenu && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white shadow-xl rounded-lg py-2 min-w-[200px] border border-gray-100">
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white shadow-xl rounded-lg py-2 min-w-[300px] border border-gray-100">
                   {Object.values(products).map((category) => (
                     <div
                       key={category.name}
@@ -69,7 +69,7 @@ export default function Header() {
                       
                       {/* Sub Categories */}
                       {activeCategory === category.name && (
-                        <div className="absolute left-full top-0 ml-0.5 bg-white shadow-xl rounded-lg py-2 min-w-[180px] border border-gray-100">
+                        <div className="absolute left-full top-0 ml-0.5 bg-white shadow-xl rounded-lg py-2 min-w-[280px] border border-gray-100">
                           {category.items.map((item) => (
                             <div key={item} className="relative group/sub">
                               <Link
@@ -82,19 +82,6 @@ export default function Header() {
                               </Link>
                               
                               {/* Nested Items */}
-                              <div className="absolute left-full top-0 ml-0.5 bg-white shadow-xl rounded-lg py-2 min-w-[160px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 border border-gray-100">
-                                {category.subCategories[item]?.map((subItem) => (
-                                  <Link
-                                    key={subItem}
-                                    href={`/product/${category.name.toLowerCase()}/${item.toLowerCase()}/${subItem.toLowerCase()}`}
-                                    className="block px-4 py-2 text-sm hover:bg-gray-50 transition-all duration-300"
-                                  >
-                                    <span className="relative hover:pl-2 transition-all duration-300 inline-block">
-                                      {subItem}
-                                    </span>
-                                  </Link>
-                                ))}
-                              </div>
                             </div>
                           ))}
                         </div>
