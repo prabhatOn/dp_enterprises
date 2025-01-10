@@ -25,7 +25,7 @@ export default function Header() {
       <div className='h-10 w-full bg-gray-900 flex items-center justify-between px-[300px]'>
         <span className=' text-white'>Authorised Channel Partner of Milton Roy</span>
         <span className='text-white'><span className='text-white'>GST No : </span>23AAGFD3172Q1Z7</span>
-        <span className='text-white'><span>Phone No :</span>+91 7313748861</span>
+        <span className='text-white'><span>Phone No :</span>7313748861</span>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-16 flex items-center justify-between">
