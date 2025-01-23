@@ -20,13 +20,14 @@ export default function ProductPage() {
     mobile: "",
   })
 
-  const headerRef = useRef(null)
-  const detailsRef = useRef(null)
-  const imageRef = useRef(null)
-  const specsRef = useRef(null)
-  const featuresRef = useRef(null)
-  const applicationsRef = useRef(null)
-  const formRef = useRef(null)
+  const headerRef = useRef<HTMLDivElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const specsRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+  const applicationsRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+  
 
   useEffect(() => {
     if (typeof window !== "undefined" && slug) {
@@ -78,19 +79,22 @@ export default function ProductPage() {
         ease: "power3.out",
       })
 
-      const animateOnScroll = (ref: React.RefObject<HTMLElement>) => {
-        gsap.from(ref.current, {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top bottom-=100",
-          },
-        })
-      }
-      ;[specsRef, featuresRef, applicationsRef, formRef].forEach(animateOnScroll)
-    }
+      const animateOnScroll = (ref: React.RefObject<HTMLElement | null>) => {
+        if (ref.current) {
+          gsap.from(ref.current, {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: ref.current,
+              start: "top bottom-=100",
+            },
+          });
+        }
+      };
+      
+      [specsRef, featuresRef, applicationsRef, formRef].forEach((ref) => animateOnScroll(ref));
+    }      
 
     setupAnimations()
   }, [])

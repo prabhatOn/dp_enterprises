@@ -1,9 +1,7 @@
 import { ReactNode } from "react";
-import Header from "@/components/common/heroBanner";  // Only keep if it’s not part of Navbar
 import Footer from "@/components/common/Footer";
 import Navbar from "../common/Navbar";
 import "tailwindcss/tailwind.css";
-import "@/styles/globals.css";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -12,9 +10,9 @@ interface MainLayoutProps {
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <>
-      <div className="min-h-screen bg-white">
+      <div className="">
         <Navbar />
-        <div className="pt-24">
+        <div className="">
           {children} 
         </div>
       </div>

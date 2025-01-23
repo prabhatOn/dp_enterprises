@@ -65,13 +65,11 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     console.log(formData)
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Google Maps Banner */}
       <div ref={mapRef} className="w-full h-[60vh] bg-gray-300">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.0072974893565!2d81.63415617487107!3d21.310727980410082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28e70334ff8821%3A0x21f27a37b122042a!2sNew%20DM%20Tower&#39;s!5e0!3m2!1sen!2sin!4v1737619808718!5m2!1sen!2sin"
@@ -127,8 +125,6 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-
-          {/* Contact Form */}
           <form
             ref={formRef}
             onSubmit={handleSubmit}
