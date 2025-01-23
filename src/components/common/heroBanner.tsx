@@ -14,7 +14,6 @@ export default function Header() {
     <div className="relative bg-white  ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
           <div className="space-y-8">
             <div>
               <h1 className="text-4xl font-bold text-gray-900 mb-6">
@@ -25,8 +24,6 @@ export default function Header() {
                 Our unique working approach and strict adherence to industry norms have enabled us to gain the trust of our clients.
               </p>
             </div>
-
-            {/* Benefits Section */}
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold text-gray-900">One Should Buy From Us Because..</h2>
               <div className="space-y-3">
@@ -38,8 +35,6 @@ export default function Header() {
                 ))}
               </div>
             </div>
-
-            {/* Focus Section */}
             <div className="bg-black text-white p-6 rounded-2xl">
               <h2 className="text-xl font-semibold mb-4">Our Focus</h2>
               <p className="text-gray-300 leading-relaxed">
@@ -51,11 +46,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-
-          {/* Image Section */}
           <div className="relative h-[600px] rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-              {/* Replace the src with your actual image URL */}
+            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">\
               <Image
                 src="/your-image.jpg"
                 alt="Industrial Equipment"
@@ -66,8 +58,6 @@ export default function Header() {
             </div>
           </div>
         </div>
-
-        {/* Authority Badge */}
         <div className="mt-12 text-center">
           <div className="inline-block border border-gray-200 rounded-full px-6 py-3 text-sm text-gray-600">
             D P Enterprises - Authorised Channel Partner of Milton Roy for Madhya Pradesh, Chandigarh & Nagpur

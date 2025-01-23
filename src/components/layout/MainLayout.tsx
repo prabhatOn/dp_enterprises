@@ -1,22 +1,21 @@
 import { ReactNode } from "react";
-import Header from "@/components/common/Header";
+import Header from "@/components/common/heroBanner";  // Only keep if it’s not part of Navbar
 import Footer from "@/components/common/Footer";
+import Navbar from "../common/Navbar";
 import "tailwindcss/tailwind.css";
 import "@/styles/globals.css";
-import Navbar from "../common/Navbar";
 
 interface MainLayoutProps {
   children: ReactNode;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <>
       <div className="min-h-screen bg-white">
         <Navbar />
-        <Header />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Other content */}
+        <div className="pt-24">
+          {children} 
         </div>
       </div>
       <Footer />
