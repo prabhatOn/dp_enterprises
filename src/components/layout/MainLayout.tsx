@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import Footer from "@/components/common/Footer";
 import Navbar from "../common/Navbar";
-import "tailwindcss/tailwind.css";
 
 interface MainLayoutProps {
   children: ReactNode;
