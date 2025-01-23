@@ -72,7 +72,7 @@ export default function Hero() {
                 {/* <h1 className="text-4xl md:text-6xl font-bold mb-4">{item.title}</h1> */}
                 {/* <p className="text-xl md:text-2xl mb-8">{item.description}</p> */}
                 <div className="flex justify-center space-x-4">
-                  <Link
+                  {/* <Link
                     href={item.ctaLink}
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transform hover:scale-105 transition-all duration-300"
                   >
@@ -83,7 +83,7 @@ export default function Hero() {
                     className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-2 px-6 rounded-full border-2 border-white transform hover:scale-105 transition-all duration-300"
                   >
                     See More
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
