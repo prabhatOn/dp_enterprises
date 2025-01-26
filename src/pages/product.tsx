@@ -1,7 +1,7 @@
 "use client"
 
+import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import dynamic from "next/dynamic"
 import { gsap } from "gsap"
 import ProductCard from "@/components/product/ProductCard"
 import { products, type ProductItem, type ProductCategory } from "@/components/data/product"
@@ -23,6 +23,7 @@ export default function MainProduct() {
   const searchButtonRef = useRef<HTMLButtonElement>(null)
   const productGridRef = useRef<HTMLDivElement>(null)
   const searchingMessageRef = useRef<HTMLDivElement>(null)
+  const bannerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const allProductItems = Object.values(products).flatMap((category: ProductCategory) => category.items)
@@ -32,7 +33,13 @@ export default function MainProduct() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      gsap.fromTo(".filter-controls", { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+      gsap.fromTo(bannerRef.current, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+
+      gsap.fromTo(
+        ".filter-controls",
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.3 },
+      )
 
       gsap.fromTo(
         productGridRef.current,
@@ -96,11 +103,16 @@ export default function MainProduct() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center">Industrial Pumps Catalog</h1>
+    <div className="min-h-screen bg-white ">
+      <div ref={bannerRef} className="bg-[#152C47] text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4">Industrial Pumps Catalog</h1>
+          <p className="text-xl">Explore our range of high-quality pumps designed for various industries.</p>
+        </div>
+      </div>
 
-        <div className="filter-controls mb-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="filter-controls bg-white p-6 rounded-lg shadow-md mb-8">
           <form
             onSubmit={handleSearch}
             className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
@@ -111,12 +123,12 @@ export default function MainProduct() {
                 placeholder="Search pumps..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-black"
+                className="w-full border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
               <button
                 ref={searchButtonRef}
                 type="submit"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full p-2 hover:bg-gray-800 transition-colors duration-300"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white rounded-full p-2 hover:bg-blue-700 transition-colors duration-300"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path
@@ -131,7 +143,7 @@ export default function MainProduct() {
               <select
                 value={pumpType}
                 onChange={(e) => setPumpType(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
               >
                 <option value="All">All Pump Types</option>
                 <option value="Electro Magnetically Actuated Diaphragm Dosing Pump">
@@ -141,11 +153,12 @@ export default function MainProduct() {
                 <option value="Mechanically Actuated Diaphragm Type Dosing Pump">Mechanically Actuated</option>
                 <option value="Hydraulically Actuated Diaphragm Type Dosing Pump">Hydraulically Actuated</option>
                 <option value="Packed Plunger Dosing Pump">Packed Plunger</option>
+                <option value="Custom">Custom (Specify in search)</option>
               </select>
               <select
                 value={industryCategory}
                 onChange={(e) => setIndustryCategory(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
               >
                 <option value="All">All Industries</option>
                 <option value="Water treatment">Water Treatment</option>
@@ -166,7 +179,10 @@ export default function MainProduct() {
           </div>
         )}
 
-        <div ref={productGridRef} className="product-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          ref={productGridRef}
+          className="product-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        >
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

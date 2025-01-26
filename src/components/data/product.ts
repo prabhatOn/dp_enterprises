@@ -31,7 +31,7 @@ export const products: Record<string, ProductCategory> = {
     id: "electro-actuated-pumps",
     name: "Milton Roy Electro Actuated Diaphragm Pumps",
     description: "Advanced electronic dosing pumps for precise chemical metering",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/assets/category/native (1).webp?height=200&width=200",
     items: [
       {
         id: "v-a-series",
@@ -159,7 +159,7 @@ export const products: Record<string, ProductCategory> = {
     id: "mechanical-actuated-pumps",
     name: "Milton Roy Actuated Diaphragm Type Dosing Pumps",
     description: "Reliable mechanical dosing pumps for industrial applications",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/assets/category/native (2).webp?height=200&width=200",
     items: [
       {
         id: "gb-series",
@@ -227,7 +227,7 @@ export const products: Record<string, ProductCategory> = {
     id: "hydraulic-actuated-pumps",
     name: "Milton Roy Hydraulically Actuated Diaphragm Pumps",
     description: "High-performance hydraulic pumps for precise fluid control",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/assets/category/native (3).webp?height=200&width=200",
     items: [
       {
         id: "m-roy-series",
@@ -355,7 +355,7 @@ export const products: Record<string, ProductCategory> = {
     id: "plunger-pumps",
     name: "Milton Roy Packed Plunger Dosing Pumps",
     description: "Durable plunger pumps for high-pressure applications",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/assets/category/native.webp?height=200&width=200",
     items: [
       {
         id: "pnk-series",

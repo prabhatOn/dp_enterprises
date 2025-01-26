@@ -1,4 +1,4 @@
-"use client"
+import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import type { ProductItem } from "@/components/data/product"
@@ -7,32 +7,37 @@ interface ProductCardProps {
   product: ProductItem
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <Link href={`/product/${product.id}`} className="block">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-        <div className="relative aspect-square">
-          <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+    <Link href={`/product/${product.id}`} className="group">
+      <div className="relative overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 h-full flex flex-col hover:shadow-xl hover:-translate-y-1">
+        <div className="relative flex flex-col items-center justify-center border-b border-[#d4d4d5] w-full h-[350px]">
+          <Image
+            src={
+              product.image ||
+              "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-25%20150842-XS0RmRGTMGfPldqh6bkSHqHNNgMspn.png" ||
+              "/placeholder.svg"
+            }
+            alt={product.name}
+            fill
+            className="object-contain p-4"
+          />
         </div>
-        <div className="p-4">
-          <h3 className="font-semibold text-lg mb-2 line-clamp-2">{product.name}</h3>
-          <div className="text-sm text-gray-600 space-y-1">
-            <p>Flow Rate: {product.specifications.find((spec) => spec.name === "Flow Rate")?.value}</p>
-            <p>Pressure: {product.specifications.find((spec) => spec.name === "Pressure")?.value}</p>
+        <div className="flex flex-col flex-1 px-5 py-1 text-[rgba(0,0,0,0.68)] text-xs leading-[1.6] items-center">
+          <h3 className="pt-[10px] pb-[0.2em] mb-[10px] text-[17px] font-bold uppercase leading-[22.1px] border-t border-[rgba(34,36,38,0.1)] hyphens-auto break-words min-h-[80px] w-full text-center">
+            {product.name}
+          </h3>
+          <div className="flex-1 py-[4px] px-[20px] flex flex-col items-center text-[15px] leading-[1.625] font-[__gothamss_21a51a,__gothamss_Fallback_21a51a] mb-4">
+            <p className="text-[#33475b]">{product.description}</p>
           </div>
-          <div className="mt-4 flex justify-between items-center">
-            <span className="text-lg font-bold text-blue-600">
-              {new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(
-                product.price.min,
-              )}
-            </span>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">
-              View Details
-            </button>
-          </div>
+          <span className="text-[17px] text-[#1169af] leading-[27.625px] text-center py-[13px] pb-[25px]">
+            Learn More
+          </span>
         </div>
       </div>
     </Link>
   )
 }
+
+export default ProductCard
 

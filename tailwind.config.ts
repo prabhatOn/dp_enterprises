@@ -9,7 +9,15 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: { addUtilities: (utilities: Record<string, any>) => void }) {
+      addUtilities({
+        ".text-stroke-gray-800": {
+          "-webkit-text-stroke": "1px #1f2937", // Add outline color here
+        },
+      });
+    },
+  ],
 };
 
 export default config;
