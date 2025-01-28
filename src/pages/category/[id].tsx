@@ -1,24 +1,17 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { useParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { motion } from "framer-motion"
 import { products, type ProductCategory, type ProductItem } from "@/components/data/product"
 import ProductCard from "@/components/product/ProductCard"
-
-gsap.registerPlugin(ScrollTrigger)
 
 export default function CategoryProductPage() {
   const params = useParams()
   const [category, setCategory] = useState<ProductCategory | null>(null)
   const [industries, setIndustries] = useState<string[]>([])
-
-  const bannerRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-  const productsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const categoryId = params.id as string
@@ -31,43 +24,18 @@ export default function CategoryProductPage() {
     }
   }, [params.id])
 
-  useEffect(() => {
-    if (category) {
-      gsap.from(bannerRef.current, {
-        opacity: 0,
-        y: -50,
-        duration: 1,
-        ease: "power3.out",
-      })
-
-      gsap.from(contentRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        delay: 0.5,
-        ease: "power3.out",
-      })
-
-      gsap.from(productsRef.current?.children || [], {
-        opacity: 0,
-        y: 50,
-        stagger: 0.1,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: productsRef.current,
-          start: "top bottom-=100",
-        },
-      })
-    }
-  }, [category])
-
   if (!category) {
     return <div className="container mx-auto px-4 py-8">Category not found</div>
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div ref={bannerRef} className="bg-[url('/assets/product-banner.webp')] bg-cover bg-center bg-no-repeat text-white py-16 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="bg-[url('/assets/product-banner.webp')] bg-cover bg-center bg-no-repeat text-white py-16 px-4"
+      >
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{category.name}</h1>
@@ -82,9 +50,14 @@ export default function CategoryProductPage() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div ref={contentRef} className="container mx-auto px-4 py-12">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        className="container mx-auto px-4 py-12"
+      >
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div>
             <Image
@@ -111,11 +84,31 @@ export default function CategoryProductPage() {
 
         <div>
           <h2 className="text-3xl font-bold mb-8 text-center">Products in this Category</h2>
-          <div ref={productsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          >
             {category.items.map((product: ProductItem) => (
-              <ProductCard key={product.id} product={product} />
+              <motion.div
+                key={product.id}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5 }}
+              >
+                <ProductCard product={product} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <div className="mt-12 text-center">
@@ -126,7 +119,7 @@ export default function CategoryProductPage() {
             ← Back to All Products
           </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

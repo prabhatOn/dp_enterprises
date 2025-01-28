@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Search, Menu, X } from "lucide-react"
 import { products, type ProductCategories, ProductCategory, type ProductItem } from "@/components/data/product"
-
+import MainProduct from "@/pages/product"
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showProductMenu, setShowProductMenu] = useState(false)
@@ -80,7 +80,9 @@ export default function Navbar() {
                 setSelectedProduct(null)
               }}
             >
+              <Link href={`product`}>
               <button className="text-white hover:text-gray-300 transition-colors">Product</button>
+              </Link>
               {showProductMenu && (
                 <div className="absolute left-0 mt-2 bg-white shadow-xl rounded-lg border border-gray-200 transition-all duration-300 flex">
                   {/* Main Categories */}

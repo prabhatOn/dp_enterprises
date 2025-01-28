@@ -70,9 +70,9 @@ const Hero = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              className="w-full md:w-1/3 h-64 sm:h-80 md:h-96 mx-auto md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2"
+              className="w-full md:w-1/3 h-64 sm:h-80 md:h-96 mx-auto md:absolute md:top-1/5 md:left-1/3 md:transform md:-translate-x-1/2 md:-translate-y-1/2"
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 0.9, scale: 0.9 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5 }}
             >
@@ -88,7 +88,7 @@ const Hero = () => {
 
           {/* Bottom right description */}
           <motion.div
-            className="w-full md:w-1/3 mt-8 md:mt-0 md:self-end md:ml-auto"
+            className="w-full md:w-1/3 mt-8 md:mt-10 md:self-end md:ml-auto"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -116,4 +116,3 @@ const Hero = () => {
 }
 
 export default Hero
-
