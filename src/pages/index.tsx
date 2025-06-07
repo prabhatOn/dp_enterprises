@@ -1,17 +1,15 @@
 import React from "react";
 import ProductSection from "@/components/common/ProductCarousel";
-import Hero from "@/components/common/hero";
-import Header from "@/components/common/heroBanner";
 import ServiceSection from "@/components/common/service";
+import HeroCarousel from "@/components/common/HeroCarousel";
 
 const Home: React.FC = () => {
   return (
     <>
-      <Hero />
+      <HeroCarousel />
       <ProductSection />
-      <Header />
-      <ServiceSection/>
-      </>
+      <ServiceSection />
+    </>
   );
 };
 

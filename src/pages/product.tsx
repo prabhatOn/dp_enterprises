@@ -1,197 +1,299 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, useRef } from "react"
-import { gsap } from "gsap"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import { Search, Grid, List, X, Star, ArrowUpDown } from "lucide-react"
 import ProductCard from "@/components/product/ProductCard"
-import { products, type ProductItem, type ProductCategory } from "@/components/data/product"
+import productsData from "@/components/data/products-complete.json"
 
-let ScrollTrigger: any
-if (typeof window !== "undefined") {
-  ScrollTrigger = require("gsap/ScrollTrigger").ScrollTrigger
-  gsap.registerPlugin(ScrollTrigger)
+// Type definitions for the complete product data
+type ProductItem = {
+  id: string
+  name: string
+  slug: string
+  image: string
+  description?: string
+  price?: {
+    min: number
+    max: number
+    currency: string
+    unit: string
+  }
+  specifications?: Record<string, any>
+  features?: string[]
+  applications?: string[]
 }
 
-export default function MainProduct() {
-  const [filteredProducts, setFilteredProducts] = useState<ProductItem[]>([])
-  const [allProducts, setAllProducts] = useState<ProductItem[]>([])
-  const [pumpType, setPumpType] = useState<string>("All")
-  const [industryCategory, setIndustryCategory] = useState<string>("All")
-  const [searchTerm, setSearchTerm] = useState<string>("")
-  const [isSearching, setIsSearching] = useState<boolean>(false)
+type ProductCategory = {
+  id: string
+  name: string
+  slug: string
+  description: string
+  image: string
+  overview?: string
+  advantages?: string[]
+  applications?: string[]
+  items: ProductItem[]
+}
 
-  const searchButtonRef = useRef<HTMLButtonElement>(null)
-  const productGridRef = useRef<HTMLDivElement>(null)
-  const searchingMessageRef = useRef<HTMLDivElement>(null)
-  const bannerRef = useRef<HTMLDivElement>(null)
+const products = productsData.categories as Record<string, ProductCategory>
+
+export default function MainProduct() {  const [filteredProducts, setFilteredProducts] = useState<ProductItem[]>([])
+  const [allProducts, setAllProducts] = useState<ProductItem[]>([])
+  const [searchTerm, setSearchTerm] = useState<string>("")
+  const [sortBy, setSortBy] = useState<string>("name")
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc")
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   useEffect(() => {
     const allProductItems = Object.values(products).flatMap((category: ProductCategory) => category.items)
     setAllProducts(allProductItems)
     setFilteredProducts(allProductItems)
   }, [])
-
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      gsap.fromTo(bannerRef.current, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+    setIsLoading(true)
+    
+    // Simulate loading for better UX
+    const timer = setTimeout(() => {
+      let filtered = allProducts.filter(product => {
+        const matchesSearch = searchTerm === "" || 
+          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()))
+        
+        return matchesSearch
+      })
 
-      gsap.fromTo(
-        ".filter-controls",
-        { opacity: 0, y: -50 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.3 },
-      )
+      // Apply sorting
+      filtered.sort((a, b) => {
+        let aValue = a[sortBy as keyof ProductItem] || ""
+        let bValue = b[sortBy as keyof ProductItem] || ""
+        
+        if (typeof aValue === "string" && typeof bValue === "string") {
+          const comparison = aValue.localeCompare(bValue)
+          return sortOrder === "asc" ? comparison : -comparison
+        }
+        
+        return 0
+      })
 
-      gsap.fromTo(
-        productGridRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.5 },
-      )
+      setFilteredProducts(filtered)
+      setIsLoading(false)
+    }, 300)
 
-      if (searchButtonRef.current) {
-        searchButtonRef.current.addEventListener("mouseenter", () => {
-          gsap.to(searchButtonRef.current, { scale: 1.1, duration: 0.3 })
-        })
-        searchButtonRef.current.addEventListener("mouseleave", () => {
-          gsap.to(searchButtonRef.current, { scale: 1, duration: 0.3 })
-        })
-      }
-    }
-  }, [])
-
-  useEffect(() => {
-    setFilteredProducts(
-      allProducts.filter(
-        (product) =>
-          (pumpType === "All" ||
-            product.specifications.find((spec) => spec.name === "Product Type")?.value === pumpType) &&
-          (industryCategory === "All" || product.applications.includes(industryCategory)) &&
-          (searchTerm === "" || product.name.toLowerCase().includes(searchTerm.toLowerCase())),
-      ),
-    )
-  }, [pumpType, industryCategory, searchTerm, allProducts])
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSearching(true)
-
-    gsap.to(searchButtonRef.current, {
-      scale: 0.9,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-    })
-
-    if (searchingMessageRef.current) {
-      gsap.fromTo(
-        searchingMessageRef.current,
-        { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
-      )
-    }
-
-    setTimeout(() => {
-      setIsSearching(false)
-      if (searchingMessageRef.current) {
-        gsap.to(searchingMessageRef.current, {
-          opacity: 0,
-          y: -20,
-          duration: 0.3,
-          ease: "power2.in",
-        })
-      }
-    }, 1000)
+    return () => clearTimeout(timer)
+  }, [searchTerm, sortBy, sortOrder, allProducts])
+  const clearAllFilters = () => {
+    setSearchTerm("")
   }
 
   return (
-    <div className="min-h-screen bg-white ">
-      <div ref={bannerRef} className="bg-[#152C47] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4">Industrial Pumps Catalog</h1>
-          <p className="text-xl">Explore our range of high-quality pumps designed for various industries.</p>
+    <div className="min-h-screen bg-neutral-50">
+      {/* Modern Hero Section */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="relative bg-white border-b border-neutral-200"
+      >
+        <div className="container-custom py-16 lg:py-20">
+          <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center px-4 py-2 bg-primary-50 border border-primary-200 rounded-full text-primary-700 text-sm font-medium mb-6"
+            >
+              <Star className="w-4 h-4 mr-2" />
+              Premium Industrial Solutions
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl lg:text-6xl font-heading font-bold text-secondary-900 mb-6"
+            >
+              Product <span className="text-gradient">Catalog</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-secondary-600 leading-relaxed"
+            >
+              Discover our comprehensive range of precision-engineered pumps and dosing solutions
+            </motion.p>
+          </div>
         </div>
-      </div>
+      </motion.section>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="filter-controls bg-white p-6 rounded-lg shadow-md mb-8">
-          <form
-            onSubmit={handleSearch}
-            className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
-          >
-            <div className="w-full md:w-1/3 relative">
+      {/* Search and Filter Bar */}
+      <motion.section 
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-neutral-200"
+      >
+        <div className="container-custom py-4">
+          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
+            {/* Search Bar */}
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
               <input
                 type="text"
-                placeholder="Search pumps..."
+                placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full pl-10 pr-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white"
               />
-              <button
-                ref={searchButtonRef}
-                type="submit"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white rounded-full p-2 hover:bg-blue-700 transition-colors duration-300"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div className="flex space-x-4">
-              <select
-                value={pumpType}
-                onChange={(e) => setPumpType(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              >
-                <option value="All">All Pump Types</option>
-                <option value="Electro Magnetically Actuated Diaphragm Dosing Pump">
-                  Electro Magnetically Actuated
-                </option>
-                <option value="Electronic Dosing Pump">Electronic Dosing</option>
-                <option value="Mechanically Actuated Diaphragm Type Dosing Pump">Mechanically Actuated</option>
-                <option value="Hydraulically Actuated Diaphragm Type Dosing Pump">Hydraulically Actuated</option>
-                <option value="Packed Plunger Dosing Pump">Packed Plunger</option>
-                <option value="Custom">Custom (Specify in search)</option>
-              </select>
-              <select
-                value={industryCategory}
-                onChange={(e) => setIndustryCategory(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              >
-                <option value="All">All Industries</option>
-                <option value="Water treatment">Water Treatment</option>
-                <option value="Chemical processing">Chemical Processing</option>
-                <option value="Food and beverage industry">Food & Beverage</option>
-                <option value="Pharmaceutical manufacturing">Pharmaceutical</option>
-                <option value="Oil and gas industry">Oil & Gas</option>
-                <option value="Mining operations">Mining</option>
-                <option value="Power generation plants">Power Generation</option>
-              </select>
-            </div>
-          </form>
-        </div>
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-neutral-400 hover:text-neutral-600"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>            {/* Filter and View Controls */}
+            <div className="flex items-center gap-3">
+              {/* Results Count */}
+              <span className="text-sm text-neutral-600 whitespace-nowrap">
+                {filteredProducts.length} products
+              </span>
 
-        {isSearching && (
-          <div ref={searchingMessageRef} className="text-center text-xl font-semibold mb-4">
-            Searching...
+              {/* Sort Dropdown */}
+              <div className="relative">
+                <select
+                  value={`${sortBy}-${sortOrder}`}
+                  onChange={(e) => {
+                    const [field, order] = e.target.value.split('-')
+                    setSortBy(field)
+                    setSortOrder(order as "asc" | "desc")
+                  }}
+                  className="appearance-none bg-white border border-neutral-200 rounded-lg px-4 py-2 pr-8 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="name-asc">Name A-Z</option>
+                  <option value="name-desc">Name Z-A</option>
+                  <option value="id-asc">Newest First</option>
+                  <option value="id-desc">Oldest First</option>
+                </select>
+                <ArrowUpDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
+              </div>
+
+              {/* View Mode Toggle */}
+              <div className="flex border border-neutral-200 rounded-lg overflow-hidden">
+                <button
+                  onClick={() => setViewMode("grid")}
+                  className={`p-2 transition-colors ${
+                    viewMode === "grid" 
+                      ? 'bg-primary-500 text-white' 
+                      : 'bg-white text-neutral-600 hover:bg-neutral-50'
+                  }`}
+                >
+                  <Grid className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setViewMode("list")}
+                  className={`p-2 transition-colors ${
+                    viewMode === "list" 
+                      ? 'bg-primary-500 text-white' 
+                      : 'bg-white text-neutral-600 hover:bg-neutral-50'
+                  }`}
+                >
+                  <List className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
           </div>
+        </div>      </motion.section>
+
+      {/* Main Content */}
+      <main className="container-custom py-8">        {/* Loading State */}
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="flex items-center justify-center py-12"
+          >
+            <div className="flex items-center gap-3 text-primary-600">
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary-600"></div>
+              <span className="font-medium">Loading products...</span>
+            </div>
+          </motion.div>
         )}
 
-        <div
-          ref={productGridRef}
-          className="product-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-        >
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {/* Products Grid/List */}
+        {!isLoading && (
+          <motion.div
+            key={`${viewMode}-${filteredProducts.length}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={
+              viewMode === "grid"
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                : "space-y-4"
+            }
+          >            {filteredProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <ProductCard 
+                  product={{
+                    id: product.id,
+                    name: product.name,
+                    description: product.description || `High-quality ${product.name.toLowerCase()} for industrial applications`,
+                    image: product.image,
+                    price: product.price ? {
+                      min: product.price.min,
+                      max: product.price.max,
+                      currency: product.price.currency
+                    } : {
+                      min: 25000,
+                      max: 75000,
+                      currency: "INR"
+                    },
+                    specifications: product.specifications ? Object.entries(product.specifications).map(([name, value]) => ({
+                      name,
+                      value: value as string | number
+                    })) : [],
+                    features: product.features || [],
+                    applications: product.applications || []
+                  }} 
+                  index={index} 
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
 
-        {filteredProducts.length === 0 && (
-          <div className="text-center text-gray-600 py-8">
-            No products found. Please try a different search or filter.
-          </div>
+        {/* No Results */}
+        {!isLoading && filteredProducts.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-16"
+          >
+            <div className="max-w-md mx-auto">
+              <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Search className="w-8 h-8 text-neutral-400" />
+              </div>
+              <h3 className="text-xl font-heading font-bold text-secondary-900 mb-3">
+                No products found
+              </h3>              <p className="text-secondary-600 mb-6">
+                Try adjusting your search terms to find what you're looking for.
+              </p>
+              <button
+                onClick={clearAllFilters}
+                className="btn-primary"
+              >
+                Clear search
+              </button>
+            </div>
+          </motion.div>
         )}
       </main>
     </div>

@@ -4,26 +4,69 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { products, ProductCategory } from "@/components/data/product"
+import productsData from "@/components/data/products-complete.json"
 import {
-  IconBriefcase,
-  IconMapPin,
-  IconCalendar,
-  IconUsers,
-  IconReceipt,
-  IconBuildingBank,
-  IconCoin,
-} from "@tabler/icons-react"
+  Building2,
+  MapPin,
+  Calendar,
+  Users,
+  FileText,
+  Award,
+  Landmark,
+  TrendingUp,
+  Shield,
+  CheckCircle,
+  Target,
+  ArrowRight
+} from "lucide-react"
+
+// Type definitions for the complete product data
+type ProductCategory = {
+  id: string
+  name: string
+  slug: string
+  description: string
+  image: string
+  overview?: string
+  advantages?: string[]
+  applications?: string[]
+  items: any[]
+}
+
+const products = productsData.categories as Record<string, ProductCategory>
 
 const companyFacts = [
-  { label: "Nature of Business", value: "Distributor and Supplier", icon: IconBriefcase },
-  { label: "Location", value: "Indore, Madhya Pradesh, India", icon: IconMapPin },
-  { label: "Year of Establishment", value: "2007", icon: IconCalendar },
-  { label: "No. of Employees", value: "06", icon: IconUsers },
-  { label: "GST No.", value: "23AAGFD3172Q1Z7", icon: IconReceipt },
-  { label: "Brand Name", value: "Milton Roy", icon: IconBriefcase },
-  { label: "Banker", value: "HDFC Bank", icon: IconBuildingBank },
-  { label: "Annual Turnover", value: "INR 3 Crore", icon: IconCoin },
+  { label: "Nature of Business", value: "Distributor and Supplier", icon: Building2 },
+  { label: "Location", value: "Indore, Madhya Pradesh, India", icon: MapPin },
+  { label: "Year of Establishment", value: "2007", icon: Calendar },
+  { label: "No. of Employees", value: "06", icon: Users },
+  { label: "GST No.", value: "23AAGFD3172Q1Z7", icon: FileText },
+  { label: "Brand Name", value: "Milton Roy", icon: Award },
+  { label: "Banker", value: "HDFC Bank", icon: Landmark },
+  { label: "Annual Turnover", value: "INR 3 Crore", icon: TrendingUp },
+]
+
+const achievements = [
+  {
+    icon: Shield,
+    title: "17+ Years Experience",
+    description: "Proven track record in industrial pumping solutions"
+  },
+  {
+    icon: CheckCircle,
+    title: "500+ Satisfied Clients",
+    description: "Trusted by leading companies across industries"
+  },
+  {
+    icon: Award,
+    title: "Milton Roy Authorized",
+    description: "Official distributor of premium pumping equipment"
+  },
+  {
+    icon: Target,
+    title: "Quality Assurance",
+    description: "ISO certified products and services"
+  }
 ]
 
 export default function About() {
@@ -37,137 +80,267 @@ export default function About() {
   const isFactsInView = useInView(factsRef, { once: true })
   const isCategoriesInView = useInView(categoriesRef, { once: true })
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50 font-[__gothamss_21a51a,__gothamss_Fallback_21a51a]">
-      <motion.div
+    <div className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <motion.section
         ref={bannerRef}
-        initial="hidden"
-        animate={isBannerInView ? "visible" : "hidden"}
-        variants={fadeInUp}
-        transition={{ duration: 0.6 }}
-        className="relative h-[60vh] bg-gradient-to-r from-[#171935] to-[#171935]"
+        initial={{ opacity: 0 }}
+        animate={isBannerInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative h-[70vh] bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 overflow-hidden"
       >
-        <Image src="/about-banner.jpg" alt="DP Enterprises Banner" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-black/40" />
+        <Image 
+          src="/assets/about.webp" 
+          alt="DP Enterprises - Industrial Pumping Solutions" 
+          fill 
+          className="object-cover mix-blend-overlay" 
+        />
+        
+        {/* Background Elements */}
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+
         <div className="relative h-full flex items-center justify-center text-center px-4">
-          <div>
-            <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              DP Enterprises
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="text-xl text-white/90 max-w-3xl mx-auto">
-              Leading supplier of Milton Roy Pumps and Dosing Solutions
-            </motion.p>
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isBannerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <div className="inline-flex items-center px-4 py-2 bg-primary-500/20 backdrop-blur-sm border border-primary-300/30 rounded-full text-primary-100 text-sm font-medium">
+                <Shield className="w-4 h-4 mr-2" />
+                Trusted Since 2007
+              </div>
+              
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-tight">
+                About
+                <span className="block text-gradient-dark">DP Enterprises</span>
+              </h1>
+              
+              <p className="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                Leading supplier of Milton Roy Pumps and precision dosing solutions, 
+                serving industries with excellence for over 17 years.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </motion.div>
+      </motion.section>
 
-      <div className="container mx-auto px-4 py-16">
-        <motion.div
-          ref={contentRef}
-          initial="hidden"
-          animate={isContentInView ? "visible" : "hidden"}
-          variants={fadeInUp}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16"
-        >
-          <div className="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">About Us</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              DP Enterprises, established in 2007, is a reputed supplier of Milton Roy pumps, including Electro
-              Magnetically Actuated Diaphragm Dosing Pumps and Mechanically Actuated Diaphragm Type Dosing Pumps. Our
-              head office in Indore, Madhya Pradesh, serves as the hub for our operations across India.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              With over a decade of experience, we have consistently delivered value to our customers while adhering to
-              industry norms. Our commitment to customer satisfaction drives us to continually improve and offer the
-              best possible solutions in fluid handling and dosing technologies.
-            </p>
-          </div>
-        </motion.div>
-
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-gray-800">Key Facts</h2>
+      {/* About Content */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
           <motion.div
-            ref={factsRef}
-            initial="hidden"
-            animate={isFactsInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.1,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            ref={contentRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8 }}
+            className="grid lg:grid-cols-2 gap-16 items-center"
           >
-            {companyFacts.map((fact, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl flex items-start"
-              >
-                <fact.icon className="w-8 h-8 text-blue-600 mr-4 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{fact.label}</h3>
-                  <p className="text-gray-600">{fact.value}</p>
+            {/* Content */}
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h2 className="text-4xl lg:text-5xl font-heading font-bold text-secondary-900">
+                  Our <span className="text-gradient">Story</span>
+                </h2>
+                <p className="text-lg text-secondary-600 leading-relaxed">
+                  Established in 2007, DP Enterprises has grown to become a trusted name in industrial pumping solutions. 
+                  As an authorized distributor of Milton Roy pumps, we specialize in providing high-quality, precision 
+                  dosing equipment to diverse industries across India.
+                </p>
+                <p className="text-lg text-secondary-600 leading-relaxed">
+                  Our commitment to excellence and customer satisfaction has enabled us to build lasting relationships 
+                  with over 500 satisfied clients. We take pride in our technical expertise and comprehensive service 
+                  support that ensures optimal performance of our equipment.
+                </p>
+              </div>
+
+              {/* Achievements Grid */}
+              <div className="grid grid-cols-2 gap-4 pt-6">
+                {achievements.map((achievement, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.1 * index }}
+                    className="text-center p-4 bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl"
+                  >
+                    <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <achievement.icon className="w-6 h-6 text-primary-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-heading font-bold text-secondary-900 text-sm mb-1">{achievement.title}</h4>
+                      <p className="text-sm text-secondary-600">{achievement.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative">
+                <div className="bg-white rounded-3xl shadow-large p-8 border border-neutral-100">
+                  <Image
+                    src="/assets/products/Proteus-Series-Metering-Pump.jpg"
+                    alt="Milton Roy Precision Pumps"
+                    width={500}
+                    height={400}
+                    className="w-full h-80 object-contain"
+                  />
                 </div>
-              </motion.div>
-            ))}
+                
+                {/* Decorative Elements */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary-100 rounded-full opacity-60"></div>
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent-100 rounded-full opacity-40"></div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
+      </section>
 
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-gray-800">Our Product Categories</h2>
+      {/* Company Facts */}
+      <section className="section-padding bg-gradient-to-br from-neutral-50 to-primary-50">
+        <div className="container-custom">
           <motion.div
-            ref={categoriesRef}
-            initial="hidden"
-            animate={isCategoriesInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.1,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            {Object.entries(products).map(([categoryId, category]) => (
-              <motion.div key={categoryId} variants={fadeInUp}>
-                <Link href={`/products/${categoryId}`} className="group">
-                  <div className="relative overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 h-full flex flex-col hover:shadow-xl hover:-translate-y-1">
-                    <div className="relative flex flex-col items-center justify-center border-b border-[#d4d4d5] w-full h-[350px]">
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-secondary-900 mb-6">
+              Company <span className="text-gradient">Facts</span>
+            </h2>
+            <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
+              Key information about our organization and capabilities
+            </p>
+          </motion.div>          <motion.div
+            ref={factsRef}
+            initial={{ opacity: 0 }}
+            animate={isFactsInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-6xl mx-auto"
+          >
+            {/* Table Layout */}
+            <div className="bg-white rounded-2xl shadow-large border border-neutral-100 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <tbody>
+                    {/* First Row */}
+                    <tr className="border-b border-neutral-100">
+                      {companyFacts.slice(0, 4).map((fact, index) => (
+                        <motion.td
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={isFactsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                          transition={{ duration: 0.6, delay: 0.1 * index }}
+                          className="p-6 text-center border-r border-neutral-100 last:border-r-0 hover:bg-gradient-to-br hover:from-primary-50 hover:to-accent-50 transition-all duration-300"
+                        >
+                          <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <fact.icon className="w-6 h-6 text-primary-600" />
+                          </div>
+                          <h3 className="font-heading font-bold text-secondary-900 mb-2 text-sm lg:text-base">
+                            {fact.label}
+                          </h3>
+                          <p className="text-primary-600 font-semibold text-sm lg:text-base">
+                            {fact.value}
+                          </p>
+                        </motion.td>
+                      ))}
+                    </tr>
+                    
+                    {/* Second Row */}
+                    <tr>
+                      {companyFacts.slice(4, 8).map((fact, index) => (
+                        <motion.td
+                          key={index + 4}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={isFactsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                          transition={{ duration: 0.6, delay: 0.1 * (index + 4) }}
+                          className="p-6 text-center border-r border-neutral-100 last:border-r-0 hover:bg-gradient-to-br hover:from-primary-50 hover:to-accent-50 transition-all duration-300"
+                        >
+                          <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <fact.icon className="w-6 h-6 text-primary-600" />
+                          </div>
+                          <h3 className="font-heading font-bold text-secondary-900 mb-2 text-sm lg:text-base">
+                            {fact.label}
+                          </h3>
+                          <p className="text-primary-600 font-semibold text-sm lg:text-base">
+                            {fact.value}
+                          </p>
+                        </motion.td>
+                      ))}                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Product Categories */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-secondary-900 mb-4">
+              Our Product <span className="text-gradient">Categories</span>
+            </h2>
+            <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
+              Comprehensive range of industrial pumping solutions
+            </p>
+          </motion.div>          <motion.div
+            ref={categoriesRef}
+            initial={{ opacity: 0 }}
+            animate={isCategoriesInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6"
+          >
+            {Object.entries(products).map(([categoryId, category], index) => (
+              <motion.div
+                key={categoryId}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Link href={`/category/${categoryId}`} className="group block h-full">
+                  <div className="card-elevated bg-white h-full flex flex-col hover:shadow-large transition-all duration-300 group-hover:scale-[1.02]">
+                    <div className="relative h-48 bg-neutral-50 overflow-hidden">
                       <Image
-                        src={
-                          category.image ||
-                          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-25%20150842-XS0RmRGTMGfPldqh6bkSHqHNNgMspn.png" ||
-                          "/placeholder.svg" ||
-                          "/placeholder.svg" ||
-                          "/placeholder.svg"
-                        }
+                        src={category.image || "/assets/products/one.jpg"}
                         alt={category.name}
                         fill
-                        className="object-contain p-4"
+                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <div className="flex flex-col flex-1 px-5 py-1 text-[rgba(0,0,0,0.68)] text-xs leading-[1.6] items-center">
-                      <h3 className="pt-[10px] pb-[0.2em] mb-[10px] text-[17px] font-bold uppercase leading-[22.1px] border-t border-[rgba(34,36,38,0.1)] hyphens-auto break-words min-h-[80px] w-full text-center">
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-lg font-heading font-bold text-secondary-900 mb-2 group-hover:text-primary-600 transition-colors">
                         {category.name}
                       </h3>
-                      <div className="flex-1 py-[4px] px-[20px] flex flex-col items-center text-[15px] leading-[1.625] font-[__gothamss_21a51a,__gothamss_Fallback_21a51a] mb-4">
-                        <p className="text-[#33475b]">{category.description}</p>
+                      <p className="text-secondary-600 text-sm flex-1 leading-relaxed">
+                        {category.description}
+                      </p>
+                      <div className="flex items-center justify-between pt-4 mt-4 border-t border-neutral-100">
+                        <span className="text-primary-600 font-semibold text-sm group-hover:text-primary-700 transition-colors">
+                          {category.items.length} Products
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-primary-600 group-hover:text-primary-700 group-hover:translate-x-1 transition-all duration-300" />
                       </div>
-                      <span className="text-[17px] text-[#1169af] leading-[27.625px] text-center py-[13px] pb-[25px]">
-                        Learn More
-                      </span>
                     </div>
                   </div>
                 </Link>
@@ -175,46 +348,45 @@ export default function About() {
             ))}
           </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* Contact Section */}
-      <div
-        className="relative h-[400px] bg-fixed bg-center bg-no-repeat bg-cover overflow-hidden"
-        style={{ backgroundImage: 'url("/assets/bg.jpg")' }}
-      >
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(179.99deg, rgba(22, 49, 77, 0.26), rgb(22, 49, 77))" }}
-        />
-        <div className="relative container mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white">
+      {/* Contact CTA */}
+      <section className="section-padding bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+
+        <div className="container-custom relative text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <h2 className="text-4xl font-bold mb-6">Contact Us</h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Ready to elevate your fluid handling solutions? Get in touch with us today.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <Link
-                href="/contact"
-                className="inline-block px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-lg font-semibold"
-              >
-                Contact Now
+            <div className="space-y-4">
+              <h2 className="text-4xl lg:text-5xl font-heading font-bold text-white">
+                Ready to Get <span className="text-gradient-dark">Started?</span>
+              </h2>
+              <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                Contact us today for expert consultation on your industrial pumping needs. 
+                Our team is ready to provide tailored solutions for your specific requirements.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/contact" className="btn-primary text-lg px-8 py-4 group">
+                Contact Us Now
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="inline-block px-8 py-3 bg-white text-[#171935] rounded-md hover:bg-gray-100 transition-colors text-lg font-semibold"
-              >
-                Back to Top
-              </button>
+              <Link href="/product" className="btn-secondary text-lg px-8 py-4">
+                Browse Products
+              </Link>
             </div>
           </motion.div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
-

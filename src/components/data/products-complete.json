@@ -1,0 +1,1005 @@
+{
+  "categories": {
+    "electro-actuated-pumps": {
+      "id": "electro-actuated-pumps",
+      "name": "Milton Roy Electro Actuated Diaphragm Pumps",
+      "slug": "electro-actuated-pumps",
+      "description": "Advanced electronic dosing pumps for precise chemical metering and industrial applications",
+      "image": "/new/Milton Roy Electro Actuated Diaphragm Pumps/V-A-Series-Electro-Magnetically-Actuated-Diaphragm-Dosing-Pump.jpg",
+      "overview": "Discover the strength and durability of our Milton Roy Electro Actuated Diaphragm Pumps, which are a must-have for any industrial application. As a distributor and supplier with over 17.0 years of experience, we offer a range of products including the Unichlor Series UC11/UC12, V and A Series, B Series, and D Series. Our pumps are exclusive and customizable, providing superb performance and outstanding results.",
+      "advantages": [
+        "Precise dosing accuracy with electromagnetic actuation",
+        "Unparalleled strength and durability for tough industrial environments",
+        "Exclusive and customizable solutions",
+        "Low maintenance requirements",
+        "Corrosion resistant materials",
+        "Easy installation and operation"
+      ],
+      "applications": [
+        "Water treatment plants",
+        "Chemical processing industries",
+        "Swimming pool chlorination systems",
+        "Industrial dosing and metering",
+        "pH control applications",
+        "Disinfection systems"
+      ],
+      "items": [
+        {
+          "id": "v-a-series-electro-actuated",
+          "name": "V and A Series Electro Magnetically Actuated Diaphragm Dosing Pump",
+          "slug": "v-a-series-electro-actuated",
+          "image": "/new/Milton Roy Electro Actuated Diaphragm Pumps/V-A-Series-Electro-Magnetically-Actuated-Diaphragm-Dosing-Pump.jpg",
+          "price": {
+            "min": 26500,
+            "max": 39000,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "12 LPH",
+            "pressure": "12 kgf/cm2",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Diaphragm Pump",
+            "productType": "A Series Electro Magnetically Actuated Diaphragm Dosing Pump",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The V and A Series Electro Magnetically Actuated Diaphragm Dosing Pump offers precise dosing with electromagnetic actuation technology. Designed for industrial applications, this pump provides reliable performance with a flow rate of 12 LPH and operates at 12 kgf/cm2 pressure.",
+          "features": [
+            "Electromagnetic actuation for precise control",
+            "Metal construction for durability",
+            "Industrial grade performance",
+            "Available in different sizes",
+            "Electric power operation"
+          ]
+        },
+        {
+          "id": "b-series-electro-actuated",
+          "name": "B Series Electro Magnetically Actuated Diaphragm Type Dosing Pump",
+          "slug": "b-series-electro-actuated",
+          "image": "/new/Milton Roy Electro Actuated Diaphragm Pumps/B-Series-Electro-Magnetically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "17 LPH",
+            "pressure": "10 kgf/cm2",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Diaphragm Pump",
+            "productType": "Electro Magnetically Actuated Diaphragm Type Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The B Series Electro Magnetically Actuated Diaphragm Type Dosing Pump delivers reliable performance with a flow rate of 17 LPH and operates at 10 kgf/cm2 pressure, ideal for various industrial dosing applications.",
+          "features": [
+            "Higher flow rate capacity",
+            "Electromagnetic actuation technology",
+            "Robust metal construction",
+            "Industrial application focused",
+            "Electric powered operation"
+          ]
+        },
+        {
+          "id": "d-series-electro-actuated",
+          "name": "D Series Electro Magnetically Actuated Diaphragm Dosing Pump",
+          "slug": "d-series-electro-actuated",
+          "image": "/new/Milton Roy Electro Actuated Diaphragm Pumps/D-Series-Electro-Magnetically-Actuated-Diaphragm-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "90 LPH",
+            "pressure": "Other kgf/cm2",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Diaphragm Pump",
+            "productType": "D Series Electro Magnetically Actuated Diaphragm Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The D Series Electro Magnetically Actuated Diaphragm Dosing Pump offers high flow rate capacity of 90 LPH, making it suitable for large-scale industrial dosing applications.",
+          "features": [
+            "High flow rate of 90 LPH",
+            "Electromagnetic actuation for precision",
+            "Heavy-duty metal construction",
+            "Designed for industrial use",
+            "Electric power operation"
+          ]
+        },
+        {
+          "id": "unichlor-uc11-uc12",
+          "name": "Unichlor - UC 11 / UC12 Electronic Dosing Pump For Chlorination",
+          "slug": "unichlor-uc11-uc12",
+          "image": "/new/Milton Roy Electro Actuated Diaphragm Pumps/Unichlor-UC-11-UC12-Electronic-Dosing-Pump-For-Chlorination.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "6 LPH",
+            "pressure": "4 kgf/cm2",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Electronic Dosing Pump",
+            "productType": "100SPM Electronic Dosing Pump For Chlorination",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The Unichlor UC 11/UC12 Electronic Dosing Pump is specifically designed for chlorination applications, providing precise chemical dosing for water treatment and disinfection systems.",
+          "features": [
+            "Specialized for chlorination applications",
+            "Electronic dosing control",
+            "Compact design with different sizes available",
+            "Metal construction for chemical resistance",
+            "100SPM electronic dosing capability"
+          ]
+        }
+      ]
+    },
+    "mechanical-actuated-pumps": {
+      "id": "mechanical-actuated-pumps",
+      "name": "Milton Roy Actuated Diaphragm Type Dosing Pumps",
+      "slug": "mechanical-actuated-pumps",
+      "description": "Reliable mechanical dosing pumps for industrial applications with superior performance",
+      "image": "/new/Milton Roy Actuated Diaphragm Type Dosing Pumps/GB-Series-Mechanically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+      "overview": "Step into the future with our Milton Roy Actuated Diaphragm Type Dosing Pumps. As a prime distributor and supplier, we offer the GB Series and M Series Mechanically Actuated Diaphragm Type Dosing Pumps. Our supply ability in the domestic market is all over India, making it a marvelous choice for your dosing needs.",
+      "advantages": [
+        "Accurate dosing with mechanical actuation",
+        "High chemical compatibility",
+        "Low maintenance requirements",
+        "Easy installation and operation",
+        "Long service life and durability"
+      ],
+      "applications": [
+        "Chemical processing industries",
+        "Water treatment facilities",
+        "Oil and gas operations",
+        "Pharmaceutical manufacturing",
+        "Food and beverage processing",
+        "Industrial process control"
+      ],
+      "items": [
+        {
+          "id": "gb-series-mechanical",
+          "name": "GB Series Mechanically Actuated Diaphragm Type Dosing Pump",
+          "slug": "gb-series-mechanical",
+          "image": "/new/Milton Roy Actuated Diaphragm Type Dosing Pumps/GB-Series-Mechanically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Diaphragm Pump",
+            "productType": "GB Series Mechanically Actuated Diaphragm Type Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The GB Series Mechanically Actuated Diaphragm Type Dosing Pump offers reliable mechanical actuation for precise dosing in high-pressure industrial applications.",
+          "features": [
+            "Mechanical actuation for reliability",
+            "High pressure operation capability",
+            "Industrial grade metal construction",
+            "Electric powered operation",
+            "Designed for continuous operation"
+          ]
+        },
+        {
+          "id": "m-series-mechanical",
+          "name": "M Series Mechanically Actuated Diaphragm Type Dosing Pump",
+          "slug": "m-series-mechanical",
+          "image": "/new/Milton Roy Actuated Diaphragm Type Dosing Pumps/M-Series-Mechanically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Diaphragm Pump",
+            "productType": "M Series Mechanically Actuated Diaphragm Type Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The M Series Mechanically Actuated Diaphragm Type Dosing Pump provides exceptional performance with mechanical actuation technology for demanding industrial applications.",
+          "features": [
+            "Advanced mechanical actuation",
+            "High pressure performance",
+            "Durable metal construction",
+            "Electric power operation",
+            "Industrial application optimized"
+          ]
+        }
+      ]
+    },
+    "hydraulic-actuated-pumps": {
+      "id": "hydraulic-actuated-pumps",
+      "name": "Milton Roy Hydraulically Actuated Diaphragm Pumps",
+      "slug": "hydraulic-actuated-pumps",
+      "description": "High-performance hydraulic pumps for precise fluid control and dosing applications",
+      "image": "/new/Milton Roy Hydraulically Actuated Diaphragm Pumps/m-Roy-Series-A-B-H-P-Hydraulically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+      "overview": "Discover the exceptional strength and durability of our Milton Roy Hydraulically Actuated Diaphragm Pumps. As a distributor and supplier with over 17.0 years of experience, we offer a range of phenomenal pumps including the B145 Series, m-Roy Series A B H and P, PHL Series, and B105 Series. These pumps are designed with hydraulically actuated diaphragms, ensuring excellent dosing accuracy and reliability.",
+      "advantages": [
+        "Handle wide range of fluids with precision",
+        "Compact and easy-to-install design",
+        "Low maintenance requirements",
+        "Consistent and accurate dosing performance",
+        "High pressure operation capabilities",
+        "Excellent dosing accuracy and reliability"
+      ],
+      "applications": [
+        "Chemical dosing systems",
+        "Water treatment facilities",
+        "High pressure metering applications",
+        "Industrial process control",
+        "Fluid handling systems",
+        "Precision dosing applications"
+      ],
+      "items": [
+        {
+          "id": "m-roy-series-abhp",
+          "name": "m-Roy Series A B H and P Hydraulically Actuated Diaphragm Type Dosing Pump",
+          "slug": "m-roy-series-abhp",
+          "image": "/new/Milton Roy Hydraulically Actuated Diaphragm Pumps/m-Roy-Series-A-B-H-P-Hydraulically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "88 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Hydraulic",
+            "structure": "Diaphragm Pump",
+            "productType": "A Series 88 LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The m-Roy Series A B H and P Hydraulically Actuated Diaphragm Type Dosing Pump delivers exceptional performance with 88 LPH flow rate and hydraulic actuation for precise dosing applications.",
+          "features": [
+            "Hydraulic actuation for precise control",
+            "88 LPH flow rate capacity",
+            "High pressure operation",
+            "Metal construction for durability",
+            "Industrial grade performance"
+          ]
+        },
+        {
+          "id": "phl-series-hydraulic",
+          "name": "PHL Series Hydraulically Actuated Diaphragm Type Dosing Pump",
+          "slug": "phl-series-hydraulic",
+          "image": "/new/Milton Roy Hydraulically Actuated Diaphragm Pumps/PHL-Series-Hydraulically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "7000 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Diaphragm Pump",
+            "productType": "PHL Series 7000LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The PHL Series Hydraulically Actuated Diaphragm Type Dosing Pump offers high capacity dosing with 7000 LPH flow rate, ideal for large-scale industrial applications.",
+          "features": [
+            "High capacity 7000 LPH flow rate",
+            "Hydraulic actuation technology",
+            "High pressure operation",
+            "Available in different sizes",
+            "Electric powered with hydraulic actuation"
+          ]
+        },
+        {
+          "id": "b105-series-hydraulic",
+          "name": "B105 Series Hydraulically Actuated Diaphragm Type Dosing Pump",
+          "slug": "b105-series-hydraulic",
+          "image": "/new/Milton Roy Hydraulically Actuated Diaphragm Pumps/B105-Series-Hydraulically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "760 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Diaphragm Pump",
+            "productType": "B105 Series 760LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The B105 Series Hydraulically Actuated Diaphragm Type Dosing Pump provides reliable performance with 760 LPH flow rate for medium-scale industrial dosing applications.",
+          "features": [
+            "760 LPH flow rate capacity",
+            "Hydraulic actuation for precision",
+            "High pressure capabilities",
+            "Industrial grade metal construction",
+            "Electric powered operation"
+          ]
+        },
+        {
+          "id": "b145-series-hydraulic",
+          "name": "B145 Series Hydraulically Actuated Diaphragm Type Dosing Pump",
+          "slug": "b145-series-hydraulic",
+          "image": "/new/Milton Roy Hydraulically Actuated Diaphragm Pumps/B145-Series-Hydraulically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "2000 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Hydraulic",
+            "structure": "Diaphragm Pump",
+            "productType": "B145 Series 2000LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "supplyAbility": "10 Per Month",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The B145 Series Hydraulically Actuated Diaphragm Type Dosing Pump delivers high-capacity dosing with 2000 LPH flow rate for large-scale industrial operations.",
+          "features": [
+            "High capacity 2000 LPH flow rate",
+            "Hydraulic power and actuation",
+            "High pressure operation",
+            "Available in different sizes",
+            "Designed for heavy-duty industrial use"
+          ]
+        }
+      ]
+    },
+    "plunger-pumps": {
+      "id": "plunger-pumps",
+      "name": "Milton Roy Packed Plunger Dosing Pumps",
+      "slug": "plunger-pumps",
+      "description": "Precision plunger pumps for high-pressure dosing and metering applications",
+      "image": "/new/Milton Roy Packed Plunger Dosing Pumps/PNL-Series-Packed-Plunger-Dosing-Pump.jpg",
+      "overview": "Unlock the advantages of our Milton Roy Packed Plunger Dosing Pumps, available in a range of models including the PNM Series, PNP Series, PNL Series, PNZ Series, and PNK Series. These dosing pumps are incomparable in their precision and accuracy, delivering superb performance in a variety of applications. With over 17.0 years of experience in the industry, our company is proud to offer these immaculate dosing pumps to customers across India.",
+      "advantages": [
+        "Handle wide range of fluids and chemicals",
+        "Compact and durable design",
+        "Easy-to-use controls and operation",
+        "Incomparable precision and accuracy",
+        "High pressure operation capabilities",
+        "Superb performance in various applications"
+      ],
+      "applications": [
+        "Chemical processing industry",
+        "Pharmaceutical manufacturing",
+        "Food and beverage processing",
+        "High pressure metering systems",
+        "Industrial dosing applications",
+        "Precision fluid handling"
+      ],
+      "items": [
+        {
+          "id": "pnk-series-plunger",
+          "name": "PNK Series Packed Plunger Dosing Pump",
+          "slug": "pnk-series-plunger",
+          "image": "/new/Milton Roy Packed Plunger Dosing Pumps/PNK-Series-Packed-Plunger-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "2000 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Packed Plunger Pump",
+            "productType": "PN-K Series 2000LPH Packed Plunger Dosing Pump",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The PNK Series Packed Plunger Dosing Pump offers high-capacity dosing with 2000 LPH flow rate, featuring packed plunger technology for reliable and precise metering in industrial applications.",
+          "features": [
+            "High capacity 2000 LPH flow rate",
+            "Packed plunger technology",
+            "High pressure operation",
+            "Available in different sizes",
+            "Industrial grade performance"
+          ]
+        },
+        {
+          "id": "pnl-series-plunger",
+          "name": "PNL Series Packed Plunger Dosing Pump",
+          "slug": "pnl-series-plunger",
+          "image": "/new/Milton Roy Packed Plunger Dosing Pumps/PNL-Series-Packed-Plunger-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "5722 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Packed Plunger Pump",
+            "productType": "PN-L Series 5722LPH Packed Plunger Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Day",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The PNL Series Packed Plunger Dosing Pump delivers exceptional high-capacity dosing with 5722 LPH flow rate, designed for large-scale industrial applications requiring precise metering.",
+          "features": [
+            "Ultra-high capacity 5722 LPH flow rate",
+            "Advanced packed plunger design",
+            "High pressure capabilities",
+            "Metal construction for durability",
+            "Optimized for large-scale operations"
+          ]
+        },
+        {
+          "id": "pnm-series-plunger",
+          "name": "PNM Series Packed Plunger Dosing Pump",
+          "slug": "pnm-series-plunger",
+          "image": "/new/Milton Roy Packed Plunger Dosing Pumps/PNM-Series-Packed-Plunger-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "190 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Packed Plunger Pump",
+            "productType": "PN-M Series 190LPH Packed Plunger Dosing Pump",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The PNM Series Packed Plunger Dosing Pump provides reliable dosing with 190 LPH flow rate, featuring packed plunger technology for precision metering in industrial applications.",
+          "features": [
+            "190 LPH flow rate capacity",
+            "Packed plunger technology",
+            "High pressure operation",
+            "Available in different sizes",
+            "Reliable industrial performance"
+          ]
+        },
+        {
+          "id": "pnp-series-plunger",
+          "name": "PNP Series Packed Plunger Dosing Pump",
+          "slug": "pnp-series-plunger",
+          "image": "/new/Milton Roy Packed Plunger Dosing Pumps/PNP-Series-Packed-Plunger-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "457 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Packed Plunger Pump",
+            "productType": "PN-P Series 457LPH Packed Plunger Dosing Pump",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The PNP Series Packed Plunger Dosing Pump offers medium-capacity dosing with 457 LPH flow rate, combining packed plunger technology with reliable performance for industrial metering applications.",
+          "features": [
+            "457 LPH flow rate capacity",
+            "Packed plunger design",
+            "High pressure capabilities",
+            "Available in different sizes",
+            "Industrial grade construction"
+          ]
+        },
+        {
+          "id": "pnz-series-plunger",
+          "name": "PNZ Series Packed Plunger Dosing Pump",
+          "slug": "pnz-series-plunger",
+          "image": "/new/Milton Roy Packed Plunger Dosing Pumps/PNZ-Series-Packed-Plunger-Dosing-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "flowRate": "45.2 LPH",
+            "pressure": "High Pressure",
+            "material": "Metal",
+            "power": "Electric",
+            "structure": "Packed Plunger Pump",
+            "productType": "PN-Z Series 45.2LPH Packed Plunger Dosing Pump",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "We are proud to present our PN-Z Series 45.2LPH Packed Plunger Dosing Pump. This pump is designed to provide a reliable and efficient solution for metering and dosing applications. It is suitable for a wide variety of liquids and has a maximum flow rate of 45.2LPH. The pump is made from high-quality metal and is designed to withstand high pressure.",
+          "features": [
+            "Precise 45.2 LPH flow rate",
+            "Packed plunger technology",
+            "High pressure operation",
+            "Suitable for wide variety of liquids",
+            "Low noise level operation",
+            "Easy to install and maintain"
+          ]
+        }
+      ]
+    },
+    "pump-accessories": {
+      "id": "pump-accessories",
+      "name": "Milton Roy Pump Accessories",
+      "slug": "pump-accessories",
+      "description": "High-performance accessories to enhance your Milton Roy pump systems",
+      "image": "/new/Milton Roy Pump Accessories/Continuous-Automatic-Preparation-Machine.jpg",
+      "overview": "Introducing our high-performance Milton Roy Pump Accessories, which are perfect for all your pumping needs. With over 17.0 years of experience in the industry, we are proud to offer a range of top-notch accessories that are designed to enhance the performance of your Milton Roy pumps. Our product list includes controllers, valves, preparation machines, and metering pumps.",
+      "advantages": [
+        "Latest technology features",
+        "Enhanced pump performance",
+        "Wide range of industrial applications",
+        "High-quality construction",
+        "Easy installation and maintenance",
+        "Compatible with Milton Roy pump systems"
+      ],
+      "applications": [
+        "Chemical processing industries",
+        "Water treatment facilities",
+        "Oil and gas operations",
+        "Industrial process control",
+        "Pump system enhancement",
+        "Automation and control systems"
+      ],
+      "items": [
+        {
+          "id": "actuator-capacity-controller",
+          "name": "Actuator Capacity Controller",
+          "slug": "actuator-capacity-controller",
+          "image": "/new/Milton Roy Pump Accessories/Actuator-Capacity-Controller.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "color": "Yellow",
+            "productType": "Actuator Capacity Controller",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "50 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "10 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The Actuator Capacity Controller is a high-performance industrial device designed to provide precise control of actuator capacity. This device is made of durable metal and is available in a bright, eye-catching yellow color. It features a built-in microprocessor that provides accurate, real-time control of the actuator capacity, allowing for precise and efficient operation.",
+          "features": [
+            "Built-in microprocessor for accurate control",
+            "Real-time actuator capacity control",
+            "User-friendly interface",
+            "Durable metal construction",
+            "Available in various sizes",
+            "Bright yellow color for visibility"
+          ]
+        },
+        {
+          "id": "electronic-capacity-controller",
+          "name": "Electronic Capacity Controller",
+          "slug": "electronic-capacity-controller",
+          "image": "/new/Milton Roy Pump Accessories/Electronic-Capacity-Controller.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "color": "Yellow",
+            "productType": "Electronic Capacity Controller",
+            "size": "Different Available",
+            "power": "Electric",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "50 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "10 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The Electronic Capacity Controller is the perfect solution for industrial applications. This device is designed to regulate the capacity of electric power and is made of durable metal material. It is capable of regulating the capacity of electric power in a variety of different applications, including industrial machinery, power plants, and other industrial sites.",
+          "features": [
+            "Electric power capacity regulation",
+            "Durable metal construction",
+            "Bright yellow color for identification",
+            "Highly efficient and reliable",
+            "Easy to install and use",
+            "Energy efficient design"
+          ]
+        },
+        {
+          "id": "back-pressure-valve",
+          "name": "Back Pressure Valve",
+          "slug": "back-pressure-valve",
+          "image": "/new/Milton Roy Pump Accessories/Back-Pressure-Valve.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "color": "Black, Yellow",
+            "productType": "Back Pressure Valve",
+            "size": "Different Available",
+            "pressure": "High Pressure",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "100 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "7 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "We are a distributor and supplier of a high quality Back Pressure Valve. Our valves are made from the finest quality metal and are designed to meet the highest industry standards. The valves are designed to maintain pressure within a system, preventing over-pressure or under-pressure from occurring.",
+          "features": [
+            "High-quality metal construction",
+            "Maintains system pressure",
+            "Prevents over-pressure conditions",
+            "Resistant to corrosion",
+            "Easy to install",
+            "Long-lasting performance"
+          ]
+        },
+        {
+          "id": "multi-function-valve",
+          "name": "Multi Function Valve",
+          "slug": "multi-function-valve",
+          "image": "/new/Milton Roy Pump Accessories/Multi-Function-Valve.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Plastic",
+            "color": "Black, Yellow",
+            "size": "Different Available",
+            "pressure": "High Pressure",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "100 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "7 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "We are a distributor and supplier of Multi Function Valves which are made from high quality plastic and are available in black and yellow colors. These valves are designed for industrial use and are highly efficient and reliable. The valves are designed to be resistant to corrosion and abrasion.",
+          "features": [
+            "High-quality plastic construction",
+            "Resistant to corrosion and abrasion",
+            "Leak proof design",
+            "Energy efficient operation",
+            "Easy to install and maintain",
+            "Compatible with different systems"
+          ]
+        },
+        {
+          "id": "compact-dosing-system",
+          "name": "Compact Dosing System",
+          "slug": "compact-dosing-system",
+          "image": "/new/Milton Roy Pump Accessories/Compact-Dosing-System.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "color": "Yellow",
+            "productType": "Compact Dosing System",
+            "power": "Electric",
+            "pressure": "High Pressure",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "We are a distributor and supplier of Compact Dosing Systems. Our systems are designed to provide high-pressure, efficient and reliable dosing of liquids and gases in industrial applications. The system is equipped with advanced features such as a digital display, adjustable flow rate, and a built-in safety system.",
+          "features": [
+            "High-pressure dosing capability",
+            "Digital display for monitoring",
+            "Adjustable flow rate control",
+            "Built-in safety system",
+            "Energy efficient operation",
+            "Easy to install and maintain"
+          ]
+        },
+        {
+          "id": "continuous-automatic-preparation-machine",
+          "name": "Continuous And Automatic Preparation Machine",
+          "slug": "continuous-automatic-preparation-machine",
+          "image": "/new/Milton Roy Pump Accessories/Continuous-Automatic-Preparation-Machine.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "productType": "Continuous And Automatic Preparation Machine",
+            "pressure": "High Pressure",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "50 Per Month",
+            "deliveryTime": "10 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "We are proud to offer our customers the Continuous and Automatic Preparation Machine. This machine is perfect for industrial use, and is designed to provide high-pressure performance. It is capable of automatically preparing the material for processing, without the need for manual labor.",
+          "features": [
+            "Automatic material preparation",
+            "High-pressure performance",
+            "No manual labor required",
+            "Energy-efficient operation",
+            "Easy to use and maintain",
+            "Consistent results"
+          ]
+        },
+        {
+          "id": "proteus-series-metering-pump",
+          "name": "Proteus Series Metering Pump",
+          "slug": "proteus-series-metering-pump",
+          "image": "/new/Milton Roy Pump Accessories/Proteus-Series-Metering-Pump.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "pressure": "High Pressure",
+            "productType": "Proteus Series Metering Pump",
+            "power": "Electric",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The Proteus Series Metering Pump is a high-pressure electric pump designed for industrial applications. It is made from durable metal materials and is designed to provide reliable, long-term performance. The pump is capable of delivering precise and accurate metering of liquids and gases.",
+          "features": [
+            "High-pressure electric operation",
+            "Precise and accurate metering",
+            "Durable metal construction",
+            "Handles wide range of flow rates",
+            "Easy to install and operate",
+            "Reliable long-term performance"
+          ]
+        }
+      ]
+    },
+    "automatic-pinch-valves": {
+      "id": "automatic-pinch-valves",
+      "name": "Milton Roy Automatic Pinch Valves",
+      "slug": "automatic-pinch-valves",
+      "description": "Superior automatic pinch valves for reliable flow control in industrial applications",
+      "image": "/new/Milton Roy Automatic Pinch Valves/Automatic-Pinch-Valve-metal.jpg",
+      "overview": "Experience the excellence of our Milton Roy Automatic Pinch Valves, which have been in the market for over 17.0 years. These Automatic Pinch Valves are extraordinary in their design and superior in their performance, making them the perfect choice for a wide range of applications. Compared to other valves trending in the market, our Milton Roy Automatic Pinch Valves offer unmatched reliability and durability.",
+      "advantages": [
+        "Handle abrasive and corrosive materials",
+        "Low maintenance requirements",
+        "Accurate flow control capabilities",
+        "Compatible with wide range of fluids",
+        "Long service life and durability",
+        "Easy to install and maintain"
+      ],
+      "applications": [
+        "Industrial flow control systems",
+        "Abrasive material handling",
+        "Corrosive fluid applications",
+        "Process automation",
+        "Chemical processing",
+        "Water treatment systems"
+      ],
+      "items": [
+        {
+          "id": "metal-automatic-pinch-valve",
+          "name": "Metal Automatic Pinch Valve",
+          "slug": "metal-automatic-pinch-valve",
+          "image": "/new/Milton Roy Automatic Pinch Valves/Automatic-Pinch-Valve-metal.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "color": "Yellow",
+            "productType": "Metal Automatic Pinch Valve",
+            "application": "Industrial",
+            "pressure": "High Pressure",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "50 Per Day",
+            "deliveryTime": "10 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The Metal Automatic Pinch Valve is designed to provide reliable and durable performance in industrial applications. This valve is made of high-grade metal and is resistant to corrosion and wear. It is designed to provide a tight seal, preventing any leakage of fluids or gases.",
+          "features": [
+            "High-grade metal construction",
+            "Resistant to corrosion and wear",
+            "Tight seal prevents leakage",
+            "Easy to install and maintain",
+            "High pressure operation",
+            "Available in different sizes"
+          ]
+        },
+        {
+          "id": "automatic-pinch-valve-black",
+          "name": "Automatic Pinch Valve (Black)",
+          "slug": "automatic-pinch-valve-black",
+          "image": "/new/Milton Roy Automatic Pinch Valves/Automatic-Pinch-Valve.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "color": "Black",
+            "productType": "Automatic Pinch Valve",
+            "application": "Industrial",
+            "pressure": "High Pressure",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "50 Per Month",
+            "deliveryTime": "10 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "The Automatic Pinch Valve in black color provides reliable flow control for industrial applications. Designed for high pressure operations, this valve offers excellent performance in demanding industrial environments.",
+          "features": [
+            "High pressure operation capability",
+            "Industrial grade performance",
+            "Available in different sizes",
+            "Reliable flow control",
+            "Durable construction",
+            "Easy maintenance"
+          ]
+        }
+      ]
+    }
+  },
+  "company": {
+    "name": "DP Enterprises",
+    "established": "2007",
+    "experience": "17+ Years",
+    "location": "India",
+    "serviceArea": "All India",
+    "specialization": "Milton Roy Authorized Distributor",
+    "description": "Leading distributor and supplier of Milton Roy pumping solutions with over 17 years of experience in industrial applications."
+  }
+}

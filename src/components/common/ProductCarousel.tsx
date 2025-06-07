@@ -1,9 +1,6 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
 import { useEffect, useState } from "react"
-import { products } from "../data/product"
 import FeaturedProductsBanner from "../product/FeaturedProductsBanner"
 import BentoGrid from "./bentoGrid"
 import HotDealsCarousel from "../product/HotDealsCarousel"
@@ -18,7 +15,7 @@ export default function ProductSection() {
   if (!mounted) return null
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gradient-to-b from-[#152C47] to-[#031224]">
+    <div className="bg-neutral-50 py-16">
       <FeaturedProductsBanner />
       <BentoGrid />
       <HotDealsCarousel />

@@ -6,22 +6,41 @@ import { products } from "@/components/data/product"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-[#152C47] to-[#031224] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">About Us</h3>
-            <p className="text-gray-400">Authorised Channel Partner of Milton Roy</p>
-            <button className="bg-white text-black px-4 sm:px-6 py-2 rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2 text-sm">
-              Send Inquiry <ArrowUpRight className="w-4 h-4" />
-            </button>
+    <footer className="bg-secondary-900 text-white">
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">DP</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-heading font-bold">DP Enterprises</h3>
+                  <p className="text-secondary-400 text-sm">Industrial Solutions</p>
+                </div>
+              </div>
+              <p className="text-secondary-300 text-sm leading-relaxed">
+                Authorized Channel Partner of Milton Roy, delivering precision industrial pumping solutions since 2007.
+              </p>
+            </div>
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center btn-primary group"
+            >
+              Send Inquiry 
+              <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Quick Links</h3>
-            <ul className="space-y-2">
+
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-heading font-bold">Quick Links</h3>
+            <ul className="space-y-3">
               {[
-                { name: "Home Page", href: "/" },
-                { name: "Company Profile", href: "/about" },
+                { name: "Home", href: "/" },
+                { name: "About Us", href: "/about" },
                 { name: "Our Products", href: "/product" },
                 { name: "Contact Us", href: "/contact" },
                 { name: "Sitemap", href: "/sitemap" },
@@ -29,67 +48,90 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-secondary-300 hover:text-white transition-colors flex items-center gap-3 group text-sm"
                   >
-                    <span className="w-1.5 h-1.5 bg-gray-400 group-hover:bg-white rounded-full transition-colors"></span>
+                    <div className="w-1.5 h-1.5 bg-primary-500 rounded-full transition-all duration-200 group-hover:bg-white group-hover:scale-125"></div>
                     {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Our Products</h3>
-            <ul className="space-y-2">
-              {Object.entries(products).map(([key, category]) => (
+
+          {/* Our Products */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-heading font-bold">Our Products</h3>
+            <ul className="space-y-3">
+              {Object.entries(products).slice(0, 5).map(([key, category]) => (
                 <li key={key}>
                   <Link
                     href={`/product/${key}`}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-secondary-300 hover:text-white transition-colors flex items-center gap-3 group text-sm"
                   >
-                    <span className="w-1.5 h-1.5 bg-gray-400 group-hover:bg-white rounded-full transition-colors"></span>
+                    <div className="w-1.5 h-1.5 bg-accent-500 rounded-full transition-all duration-200 group-hover:bg-white group-hover:scale-125"></div>
                     {category.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Contact Information</h3>
-            <div className="space-y-4 text-gray-400">
+
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-heading font-bold">Contact Information</h3>
+            <div className="space-y-4 text-secondary-300">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                <p className="text-sm sm:text-base">
-                  C-43/1, VIDYA PALACE, BEHIND AIRPORT ROAD POLICE STATION, CHHOTA BANGARDA, Indore - 452005, Madhya
-                  Pradesh, India
-                </p>
+                <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-primary-400" />
+                <div className="text-sm leading-relaxed">
+                  <p className="font-medium text-white mb-1">Head Office</p>
+                  <p className="text-white">C-43/1, VIDYA PALACE, BEHIND AIRPORT ROAD POLICE STATION, CHHOTA BANGARDA, Indore - 452005, Madhya Pradesh, India</p>
+                </div>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5" />
-                <p>+91 7313748861</p>
+                <Phone className="w-5 h-5 text-primary-400" />
+                <div className="text-sm">
+                  <p className="font-medium text-white">Phone</p>
+                  <p className="text-white">+91 7313748861</p>
+                </div>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5" />
-                <p>Mr. Devendra Nagwan (Partner)</p>
+                <Mail className="w-5 h-5 text-primary-400" />
+                <div className="text-sm">
+                  <p className="font-medium text-white">Contact Person</p>
+                  <p className="text-white">Mr. Devendra Nagwan (Partner)</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-wrap justify-center gap-4">
-          <button className="bg-gray-800 text-white px-4 sm:px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 flex items-center gap-2 text-sm sm:text-base">
-            <Send className="w-4 h-4" /> Send Inquiry
-          </button>
-          <button className="border border-white px-4 sm:px-6 py-2 rounded-full hover:bg-black text-white hover:shadow-lg transition-all duration-300 flex items-center gap-2 text-sm sm:text-base">
-            <MessageSquare className="w-4 h-4" /> Send SMS
-          </button>
-        </div>
-      </div>
-      <div className="bg-gray-900 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} DP Enterprises All Rights Reserved.</p>
-          <p>Developed and Managed by Infocom Network Private Limited.</p>
+
+      {/* Bottom Section */}
+      <div className="border-t border-secondary-800">
+        <div className="container-custom py-8">
+          {/* Action Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <Link 
+              href="/contact" 
+              className="btn-primary flex items-center gap-2 group"
+            >
+              <Send className="w-4 h-4" /> 
+              Send Inquiry
+            </Link>
+            <Link 
+              href="/contact" 
+              className="btn-secondary flex items-center gap-2 group"
+            >
+              <MessageSquare className="w-4 h-4" /> 
+              Send SMS
+            </Link>
+          </div>
+
+          {/* Copyright */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-400 pt-8 border-t border-secondary-800">
+            <p className="text-white">© {new Date().getFullYear()} DP Enterprises. All Rights Reserved.</p>
+            <p className="text-white">Developed and Managed by ❤️ Infusion Tech</p>
+          </div>
         </div>
       </div>
     </footer>
