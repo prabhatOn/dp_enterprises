@@ -79,16 +79,15 @@ export default function About() {
   const isContentInView = useInView(contentRef, { once: true })
   const isFactsInView = useInView(factsRef, { once: true })
   const isCategoriesInView = useInView(categoriesRef, { once: true })
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden max-w-full">
       {/* Hero Banner */}
       <motion.section
         ref={bannerRef}
         initial={{ opacity: 0 }}
         animate={isBannerInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative h-[70vh] bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 overflow-hidden"
+        className="relative h-[70vh] bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 overflow-hidden max-w-full"
       >
         {/* Background Image */}
         <div className="absolute inset-0 bg-black/40" />
@@ -98,13 +97,12 @@ export default function About() {
           fill 
           className="object-cover mix-blend-overlay" 
         />
-        
-        {/* Background Elements */}
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+          {/* Background Elements */}
+        <div className="absolute top-1/4 right-0 w-40 h-40 sm:w-96 sm:h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse transform translate-x-1/2"></div>
+        <div className="absolute bottom-1/4 left-0 w-32 h-32 sm:w-96 sm:h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse transform -translate-x-1/2"></div>
 
-        <div className="relative h-full flex items-center justify-center text-center px-4">
-          <div className="container-custom">
+        <div className="relative h-full flex items-center justify-center text-center px-4 overflow-hidden">
+          <div className="container-custom overflow-hidden">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isBannerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -128,10 +126,8 @@ export default function About() {
             </motion.div>
           </div>
         </div>
-      </motion.section>
-
-      {/* About Content */}
-      <section className="section-padding bg-white">
+      </motion.section>      {/* About Content */}
+      <section className="section-padding bg-white overflow-hidden">
         <div className="container-custom">
           <motion.div
             ref={contentRef}
@@ -178,16 +174,14 @@ export default function About() {
                   </motion.div>
                 ))}
               </div>
-            </div>
-
-            {/* Image */}
+            </div>            {/* Image */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={isContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="relative overflow-hidden"
             >
-              <div className="relative">
+              <div className="relative overflow-hidden">
                 <div className="bg-white rounded-3xl shadow-large p-8 border border-neutral-100">
                   <Image
                     src="/assets/products/Proteus-Series-Metering-Pump.jpg"
@@ -199,16 +193,14 @@ export default function About() {
                 </div>
                 
                 {/* Decorative Elements */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary-100 rounded-full opacity-60"></div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent-100 rounded-full opacity-40"></div>
+                <div className="absolute -top-6 -right-6 w-16 h-16 sm:w-24 sm:h-24 bg-primary-100 rounded-full opacity-60"></div>
+                <div className="absolute -bottom-6 -left-6 w-20 h-20 sm:w-32 sm:h-32 bg-accent-100 rounded-full opacity-40"></div>
               </div>
             </motion.div>
           </motion.div>
         </div>
-      </section>
-
-      {/* Company Facts */}
-      <section className="section-padding bg-gradient-to-br from-neutral-50 to-primary-50">
+      </section>      {/* Company Facts */}
+      <section className="section-padding bg-gradient-to-br from-neutral-50 to-primary-50 overflow-hidden">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -229,66 +221,95 @@ export default function About() {
             animate={isFactsInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto"
-          >
-            {/* Table Layout */}
-            <div className="bg-white rounded-2xl shadow-large border border-neutral-100 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <tbody>
-                    {/* First Row */}
-                    <tr className="border-b border-neutral-100">
-                      {companyFacts.slice(0, 4).map((fact, index) => (
-                        <motion.td
-                          key={index}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={isFactsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                          transition={{ duration: 0.6, delay: 0.1 * index }}
-                          className="p-6 text-center border-r border-neutral-100 last:border-r-0 hover:bg-gradient-to-br hover:from-primary-50 hover:to-accent-50 transition-all duration-300"
-                        >
-                          <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <fact.icon className="w-6 h-6 text-primary-600" />
-                          </div>
-                          <h3 className="font-heading font-bold text-secondary-900 mb-2 text-sm lg:text-base">
-                            {fact.label}
-                          </h3>
-                          <p className="text-primary-600 font-semibold text-sm lg:text-base">
-                            {fact.value}
-                          </p>
-                        </motion.td>
-                      ))}
-                    </tr>
-                    
-                    {/* Second Row */}
-                    <tr>
-                      {companyFacts.slice(4, 8).map((fact, index) => (
-                        <motion.td
-                          key={index + 4}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={isFactsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                          transition={{ duration: 0.6, delay: 0.1 * (index + 4) }}
-                          className="p-6 text-center border-r border-neutral-100 last:border-r-0 hover:bg-gradient-to-br hover:from-primary-50 hover:to-accent-50 transition-all duration-300"
-                        >
-                          <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <fact.icon className="w-6 h-6 text-primary-600" />
-                          </div>
-                          <h3 className="font-heading font-bold text-secondary-900 mb-2 text-sm lg:text-base">
-                            {fact.label}
-                          </h3>
-                          <p className="text-primary-600 font-semibold text-sm lg:text-base">
-                            {fact.value}
-                          </p>
-                        </motion.td>
-                      ))}                    </tr>
-                  </tbody>
-                </table>
+          >            {/* Mobile Layout - Vertical Grid */}
+            <div className="block md:hidden">
+              <div className="grid grid-cols-1 gap-4">
+                {companyFacts.map((fact, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isFactsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.1 * index }}
+                    className="bg-white rounded-xl p-6 shadow-lg border border-neutral-100 hover:bg-gradient-to-br hover:from-primary-50 hover:to-accent-50 transition-all duration-300"
+                  >
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <fact.icon className="w-6 h-6 text-primary-600" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-heading font-bold text-secondary-900 text-sm mb-1">
+                          {fact.label}
+                        </h3>
+                        <p className="text-primary-600 font-semibold text-sm">
+                          {fact.value}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop Layout - Table */}
+            <div className="hidden md:block">
+              <div className="bg-white rounded-2xl shadow-large border border-neutral-100 overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[800px]">
+                    <tbody>
+                      {/* First Row */}
+                      <tr className="border-b border-neutral-100">
+                        {companyFacts.slice(0, 4).map((fact, index) => (
+                          <motion.td
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isFactsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                            transition={{ duration: 0.6, delay: 0.1 * index }}
+                            className="p-4 sm:p-6 text-center border-r border-neutral-100 last:border-r-0 hover:bg-gradient-to-br hover:from-primary-50 hover:to-accent-50 transition-all duration-300 min-w-[200px]"
+                          >
+                            <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                              <fact.icon className="w-6 h-6 text-primary-600" />
+                            </div>
+                            <h3 className="font-heading font-bold text-secondary-900 mb-2 text-xs sm:text-sm lg:text-base whitespace-nowrap">
+                              {fact.label}
+                            </h3>
+                            <p className="text-primary-600 font-semibold text-xs sm:text-sm lg:text-base whitespace-nowrap">
+                              {fact.value}
+                            </p>
+                          </motion.td>
+                        ))}
+                      </tr>
+                      
+                      {/* Second Row */}
+                      <tr>
+                        {companyFacts.slice(4, 8).map((fact, index) => (
+                          <motion.td
+                            key={index + 4}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isFactsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                            transition={{ duration: 0.6, delay: 0.1 * (index + 4) }}
+                            className="p-4 sm:p-6 text-center border-r border-neutral-100 last:border-r-0 hover:bg-gradient-to-br hover:from-primary-50 hover:to-accent-50 transition-all duration-300 min-w-[200px]"
+                          >
+                            <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                              <fact.icon className="w-6 h-6 text-primary-600" />
+                            </div>
+                            <h3 className="font-heading font-bold text-secondary-900 mb-2 text-xs sm:text-sm lg:text-base whitespace-nowrap">
+                              {fact.label}
+                            </h3>
+                            <p className="text-primary-600 font-semibold text-xs sm:text-sm lg:text-base whitespace-nowrap">
+                              {fact.value}
+                            </p>
+                          </motion.td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
-      </section>
-
-      {/* Product Categories */}
-      <section className="section-padding bg-white">
+      </section>      {/* Product Categories */}
+      <section className="section-padding bg-white overflow-hidden">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -308,7 +329,7 @@ export default function About() {
             initial={{ opacity: 0 }}
             animate={isCategoriesInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 overflow-hidden max-w-full"
           >
             {Object.entries(products).map(([categoryId, category], index) => (
               <motion.div
@@ -351,13 +372,12 @@ export default function About() {
       </section>
 
       {/* Contact CTA */}
-      <section className="section-padding bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 relative overflow-hidden">
-        {/* Background Elements */}
+      <section className="section-padding bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 relative overflow-hidden">        {/* Background Elements */}
         <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-40 h-40 sm:w-96 sm:h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse transform translate-x-1/2"></div>
+        <div className="absolute bottom-1/4 left-0 w-32 h-32 sm:w-96 sm:h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse transform -translate-x-1/2"></div>
 
-        <div className="container-custom relative text-center">
+        <div className="container-custom relative text-center overflow-hidden">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

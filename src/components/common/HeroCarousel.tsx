@@ -223,35 +223,36 @@ const HeroCarousel = () => {
     setIsAutoplay(false)
   }, [isTransitioning, currentSlide])
   const currentSlideData = memoizedSlides[currentSlide]
-
   const ProductCard = ({ product, index }: { product: ProductPreview; index: number }) => {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-        className="relative bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-all duration-300 group hover:scale-105 border border-gray-200 overflow-hidden w-64 h-64"
-      >        {/* Premium badge - much larger */}
-        <div className="absolute top-3 right-3 bg-blue-600 text-white text-sm px-3 py-1.5 rounded-full font-medium shadow-sm">
-          Pro
-        </div>
-          <div className="relative h-full flex flex-col">          {/* Extra large image container */}
-          <div className="relative h-52 mb-3 overflow-hidden rounded-md bg-gradient-to-br from-gray-50 to-blue-50/30 group-hover:from-blue-50/50 transition-all duration-300">
+        className="relative bg-white rounded-lg p-3 sm:p-4 lg:p-6 xl:p-8 shadow-md hover:shadow-lg transition-all duration-300 group hover:scale-105 border border-gray-200 overflow-hidden w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64"
+      >
+        
+        <div className="relative h-full flex flex-col">
+          {/* Responsive image container */}
+          <div className="relative h-24 sm:h-32 md:h-40 lg:h-52 mb-2 sm:mb-3 overflow-hidden rounded-md bg-gradient-to-br from-gray-50 to-blue-50/30 group-hover:from-blue-50/50 transition-all duration-300">
             <Image
               src={product.image}
               alt={product.name}
               fill
               className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
             />
-          </div>{/* Much larger title */}
-          <h4 className="font-semibold text-base text-gray-800 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight flex-1 mb-3">
-            {product.name.length > 40 ? product.name.substring(0, 40) + '...' : product.name}
+          </div>
+            {/* Responsive title */}
+          <h4 className="font-semibold text-xs sm:text-sm md:text-base text-gray-800 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight flex-1 mb-2 sm:mb-3">
+            <span className="sm:hidden">{product.name.length > 25 ? product.name.substring(0, 25) + '...' : product.name}</span>
+            <span className="hidden sm:inline">{product.name.length > 40 ? product.name.substring(0, 40) + '...' : product.name}</span>
           </h4>
           
-          {/* Much larger key feature */}
+          {/* Responsive key feature */}
           <div>
-            <span className="text-sm px-4 py-1.5 bg-blue-50 text-blue-700 rounded-full font-medium">
-              {product.specs[0]?.substring(0, 20) || 'Premium Quality'}
+            <span className="text-xs sm:text-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 bg-blue-50 text-blue-700 rounded-full font-medium">
+              <span className="sm:hidden">{product.specs[0]?.substring(0, 12) || 'Premium'}</span>
+              <span className="hidden sm:inline">{product.specs[0]?.substring(0, 20) || 'Premium Quality'}</span>
             </span>
           </div>
         </div>
@@ -261,9 +262,8 @@ const HeroCarousel = () => {
       </motion.div>
     )
   }
-
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white">
+    <section className="relative min-h-screen overflow-hidden bg-white pt-16 sm:pt-20 lg:pt-24">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -278,34 +278,32 @@ const HeroCarousel = () => {
           {/* Background with subtle pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50/30">
             <div className="absolute inset-0 bg-white/80"></div>
-          </div>
-
-          <div className="relative h-full min-h-screen flex items-center py-12">
-            <div className="container-custom">
-              <div className="grid lg:grid-cols-2 gap-16 items-center">
+          </div>          <div className="relative h-full min-h-screen flex items-center py-6 sm:py-8 lg:py-12">            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
                 
-                {/* Content Section */}
+                {/* Content Section - Full width on mobile, half width on lg+ */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="space-y-8"
-                >
-                  {/* Category Badge */}
+                  className="space-y-4 sm:space-y-6 lg:space-y-8 order-1 lg:order-1 mx-auto lg:mx-0 max-w-2xl lg:max-w-none"
+                >{/* Category Badge */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className={`inline-flex items-center px-4 py-2 ${currentSlideData.theme.secondary} backdrop-blur-sm rounded-full text-sm font-bold ${currentSlideData.theme.accent} border border-current/20`}
+                    className={`inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 ${currentSlideData.theme.secondary} backdrop-blur-sm rounded-full text-xs sm:text-sm font-bold ${currentSlideData.theme.accent} border border-current/20`}
                   >
-                    <Award className="w-4 h-4 mr-2" />
+                    <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                     {currentSlideData.subtitle}
-                  </motion.div>                  {/* Title */}
+                  </motion.div>
+                  
+                  {/* Title */}
                   <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-tight bg-gradient-to-r ${currentSlideData.theme.primary} bg-clip-text text-transparent`}
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight bg-gradient-to-r ${currentSlideData.theme.primary} bg-clip-text text-transparent`}
                   >
                     {currentSlideData.title}
                   </motion.h1>
@@ -315,25 +313,23 @@ const HeroCarousel = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
-                    className="text-base md:text-lg leading-relaxed text-gray-700 max-w-2xl"
+                    className="text-sm sm:text-base lg:text-lg leading-relaxed text-gray-700 max-w-2xl"
                   >
                     {currentSlideData.description}
-                  </motion.p>
-
-                  {/* Stats Grid */}
+                  </motion.p>                  {/* Stats Grid */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.9 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                    className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6"
                   >
                     {currentSlideData.stats.map((stat, index) => (
-                      <div key={index} className="text-center p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200">
-                        <div className={`flex items-center justify-center mb-2 w-10 h-10 mx-auto rounded-full ${currentSlideData.theme.secondary}`}>
-                          <stat.icon className={`w-5 h-5 ${currentSlideData.theme.accent}`} />
+                      <div key={index} className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200">
+                        <div className={`flex items-center justify-center mb-1.5 sm:mb-2 w-8 h-8 sm:w-10 sm:h-10 mx-auto rounded-full ${currentSlideData.theme.secondary}`}>
+                          <stat.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${currentSlideData.theme.accent}`} />
                         </div>
-                        <div className="text-2xl font-bold text-gray-800">{stat.value}</div>
-                        <div className="text-sm text-gray-600">{stat.label}</div>
+                        <div className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">{stat.value}</div>
+                        <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
                       </div>
                     ))}
                   </motion.div>
@@ -343,86 +339,79 @@ const HeroCarousel = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1.1 }}
-                    className="flex flex-col sm:flex-row gap-4 pt-4"
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
                   >
                     <Link
                       href={currentSlideData.cta.primary.href}
-                      className={`inline-flex items-center px-8 py-4 bg-gradient-to-r ${currentSlideData.theme.primary} text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}
+                      className={`inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r ${currentSlideData.theme.primary} text-white font-semibold rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base`}
                     >
                       {currentSlideData.cta.primary.text}
-                      <ArrowRight className="w-5 h-5 ml-2" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                     </Link>
                     <Link
                       href={currentSlideData.cta.secondary.href}
-                      className={`inline-flex items-center px-8 py-4 border-2 border-current ${currentSlideData.theme.accent} bg-white hover:bg-gray-50 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                      className={`inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-current ${currentSlideData.theme.accent} bg-white hover:bg-gray-50 font-semibold rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base`}
                     >
-                      <Phone className="w-5 h-5 mr-2" />
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       {currentSlideData.cta.secondary.text}
                     </Link>
                   </motion.div>
-                </motion.div>                {/* Compact Product Showcase */}
+                </motion.div>                {/* Compact Product Showcase - Hidden on Mobile */}
                 <motion.div
                   initial={{ opacity: 0, x: 50, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="relative"
-                >
-                  {/* Compact Header */}
+                  className="relative order-1 lg:order-2 hidden sm:block"
+                >{/* Compact Header - Responsive */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mb-6 text-center"
+                    className="mb-4 sm:mb-6 text-center"
                   >
-                    <div className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-blue-50 to-blue-100 rounded-full mb-3">
-                      <Package className="w-3 h-3 mr-2 text-blue-600" />
+                    <div className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-blue-50 to-blue-100 rounded-full mb-2 sm:mb-3">
+                      <Package className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1.5 sm:mr-2 text-blue-600" />
                       <span className="text-xs font-semibold text-blue-700">Featured Products</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Premium {currentSlideData.title}</h3>
-                    <p className="text-sm text-gray-600 max-w-xs mx-auto">Discover our industry-leading collection</p>
-                  </motion.div>
-
-                  {/* Horizontal Product Grid - Small Square Boxes */}
-                  <div className="flex gap-4 justify-center mb-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2">Premium {currentSlideData.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 max-w-xs mx-auto hidden sm:block">Discover our industry-leading collection</p>
+                  </motion.div>{/* Horizontal Product Grid - Hidden on Mobile, Visible on SM+ */}
+                  <div className="hidden sm:flex gap-2 sm:gap-3 lg:gap-4 justify-center mb-4 sm:mb-6">
                     {currentSlideData.products.slice(0, 2).map((product, index) => (
                       <Link key={product.id} href={`/product/${product.id}`} className="block">
                         <ProductCard product={product} index={index} />
                       </Link>
                     ))}
-                  </div>
-
-                  {/* Compact View All Products Link */}
+                  </div>                  {/* Compact View All Products Link - Adjusted for Mobile */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1.6 }}
-                    className="text-center"
+                    className="text-center mt-4 sm:mt-0"
                   >
                     <Link
                       href={`/category/${currentSlideData.category}`}
-                      className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg text-sm text-gray-700 font-medium hover:bg-white hover:shadow-lg transition-all duration-300 group"
+                      className="inline-flex items-center px-4 sm:px-4 py-2.5 sm:py-2 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg text-sm sm:text-sm text-gray-700 font-medium hover:bg-white hover:shadow-lg transition-all duration-300 group"
                     >
                       View All {currentSlideData.title}
-                      <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </Link>
-                  </motion.div>
-
-                  {/* Compact Milton Roy Partnership Badge */}
+                  </motion.div>                  {/* Compact Milton Roy Partnership Badge - Responsive positioning */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 1.4 }}
-                    className="absolute -top-4 -right-4 bg-gradient-to-r from-yellow-50 to-orange-50 backdrop-blur-sm px-3 py-2 rounded-xl shadow-md border border-yellow-200/50"
+                    className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 bg-gradient-to-r from-yellow-50 to-orange-50 backdrop-blur-sm px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl shadow-md border border-yellow-200/50 hidden sm:block"
                   >
-                    <div className="flex items-center space-x-1.5">
+                    <div className="flex items-center space-x-1 sm:space-x-1.5">
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-2.5 h-2.5 text-yellow-500 fill-current" />
+                          <Star key={i} className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-yellow-500 fill-current" />
                         ))}
                       </div>
                       <span className="text-xs font-bold text-gray-800">Milton Roy</span>
                     </div>
-                    <div className="text-[10px] text-gray-600 mt-0.5">Authorized Partner</div>
+                    <div className="text-[9px] sm:text-[10px] text-gray-600 mt-0.5">Authorized Partner</div>
                   </motion.div>
 
                   {/* Subtle decorative elements */}
@@ -483,15 +472,15 @@ const HeroCarousel = () => {
             </div>
           </div>
         </motion.div>
-      </AnimatePresence>      {/* Navigation - Only Dots */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex space-x-3">
+      </AnimatePresence>      {/* Navigation - Only Dots - Responsive */}
+      <div className="absolute bottom-4 sm:bottom-2 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex space-x-2 sm:space-x-3">
           {memoizedSlides.map((slide, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               disabled={isTransitioning}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
                   ? 'bg-blue-600 scale-125'
                   : 'bg-gray-300 hover:bg-gray-400'

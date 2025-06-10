@@ -267,41 +267,13 @@ export default function Navbar() {
                 Home
               </Link>
               
-              {/* Products Section with Categories */}
-              <div className="border-b border-neutral-100">
-                <Link 
-                  href="/product" 
-                  className="block py-3 text-secondary-700 hover:text-primary-600 font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  All Products
-                </Link>
-                <div className="pl-4 pb-3 space-y-2">
-                  <p className="text-xs font-medium text-secondary-500 uppercase tracking-wider mb-2">Categories</p>
-                  {Object.entries(products).map(([key, category]) => (
-                    <Link 
-                      key={key}
-                      href={`/category/${key}`} 
-                      className="flex items-center py-2 text-sm text-secondary-600 hover:text-primary-600"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <div className="w-8 h-8 bg-primary-50 rounded-lg flex items-center justify-center mr-3">
-                        <Image
-                          src={category.image}
-                          alt={category.name}
-                          width={20}
-                          height={20}
-                          className="object-contain"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-medium">{category.name}</div>
-                        <div className="text-xs text-secondary-500">{category.items?.length || 0} products</div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <Link 
+                href="/product" 
+                className="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-neutral-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                All Products
+              </Link>
               
               <Link 
                 href="/about" 
